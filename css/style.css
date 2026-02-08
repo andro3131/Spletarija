@@ -141,40 +141,65 @@ nav.scrolled {
     background: rgba(10, 10, 15, 0.95);
 }
 
+/* Logo Styles */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 .nav-logo {
-    font-family: var(--font-display);
+    font-family: 'Outfit', sans-serif;
     font-size: 1.4rem;
     letter-spacing: 0.05em;
-    line-height: 1.1;
+    line-height: 1;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .nav-logo .logo-text {
     display: block;
     white-space: nowrap;
+    line-height: 1;
 }
 
 .nav-logo .logo-splet {
     font-weight: 800;
-    background: var(--accent-gradient);
+    background: linear-gradient(135deg, #ff6b35, #e84a5f, #a855f7, #e84a5f, #ff6b35);
+    background-size: 300% 300%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    animation: gradientShift 6s ease infinite;
 }
 
 .nav-logo .logo-arija {
-    font-weight: 300;
+    font-weight: 200;
+    letter-spacing: 0.1em;
     color: var(--text-primary);
     -webkit-text-fill-color: var(--text-primary);
 }
 
-.nav-logo span {
-    -webkit-text-fill-color: var(--text-muted);
-    font-weight: 400;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
+.nav-logo span:not(.logo-splet):not(.logo-arija) {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+    letter-spacing: 0.35em;
     text-transform: uppercase;
+    margin-top: 4px;
+    font-weight: 300;
+    -webkit-text-fill-color: var(--text-muted);
     display: block;
-    margin-top: 2px;
 }
 
 /* Logo with icon */
