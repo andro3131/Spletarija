@@ -143,13 +143,27 @@ nav.scrolled {
 
 .nav-logo {
     font-family: var(--font-display);
-    font-weight: 800;
     font-size: 1.4rem;
     letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.nav-logo .logo-text {
+    display: block;
+}
+
+.nav-logo .logo-splet {
+    font-weight: 800;
     background: var(--accent-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.nav-logo .logo-arija {
+    font-weight: 300;
+    color: var(--text-primary);
+    -webkit-text-fill-color: var(--text-primary);
 }
 
 .nav-logo span {
@@ -170,8 +184,8 @@ nav.scrolled {
 }
 
 .nav-logo-icon {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     object-fit: contain;
     mix-blend-mode: lighten;
     transition: transform 0.4s ease, filter 0.4s ease;
@@ -185,8 +199,8 @@ nav.scrolled {
 
 /* Footer logo icon */
 .footer-logo-icon {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
     mix-blend-mode: lighten;
     filter: brightness(1.1);
