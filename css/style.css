@@ -143,46 +143,47 @@ nav.scrolled {
 
 .nav-logo {
     font-family: var(--font-display);
-    font-weight: 800;
-    font-size: 1.4rem;
-    letter-spacing: -0.02em;
-    background: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-size: 1.35rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    line-height: 1;
 }
 
 .nav-logo span {
     -webkit-text-fill-color: var(--text-muted);
     font-weight: 400;
-    font-size: 0.7rem;
-    letter-spacing: 0.15em;
+    font-size: 0.55rem;
+    letter-spacing: 0.35em;
     text-transform: uppercase;
     display: block;
-    margin-top: -2px;
+    margin-top: 4px;
 }
 
-/* Logo with icon */
-.nav-logo-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+/* Gradient animated text for logo */
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
-.nav-logo-icon {
-    width: 42px;
-    height: 42px;
-    object-fit: contain;
-    transition: transform 0.4s ease, filter 0.4s ease;
-    filter: brightness(1);
+.gradient-animated {
+    background: linear-gradient(135deg, #ff6b35, #e84a5f, #a855f7, #e84a5f, #ff6b35);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 6s ease infinite;
 }
 
-.nav-logo-wrapper:hover .nav-logo-icon {
-    transform: rotate(15deg) scale(1.1);
-    filter: brightness(1.2);
-}
-
-/* Logo text styling - SPLET bold, ARIJA thin */
+/* Logo text styling */
 .nav-logo .logo-bold {
     font-weight: 800;
 }
@@ -192,12 +193,30 @@ nav.scrolled {
     letter-spacing: 0.1em;
 }
 
+/* Logo with icon */
+.nav-logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-logo-icon {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.nav-logo-wrapper:hover .nav-logo-icon {
+    transform: rotate(15deg) scale(1.1);
+    filter: brightness(1.1);
+}
+
 /* Footer logo icon */
 .footer-logo-icon {
     width: 55px;
     height: 55px;
     object-fit: contain;
-    filter: brightness(1);
 }
 
 .nav-links {
