@@ -338,10 +338,67 @@ const imageObserver = new IntersectionObserver((entries) => {
 
 lazyImages.forEach(img => imageObserver.observe(img));
 
+// ========== MOCKUP CODE ANIMATION ==========
+const mockupSnippets = [
+    // HTML Snippet (Current)
+    `<span class="line"><span class="code-comment">// Ustvarjamo spletne čarovnije</span></span>
+     <span class="line"><span class="code-tag">&lt;section</span> <span class="code-attr">class</span>=<span class="code-string">"hero"</span><span class="code-tag">&gt;</span></span>
+     <span class="line"> <span class="code-tag">&lt;h1&gt;</span>Ustvarjamo</span>
+     <span class="line"> <span class="code-tag">&lt;span</span> <span class="code-attr">class</span>=<span class="code-string">"gradient"</span><span class="code-tag">&gt;</span></span>
+     <span class="line"> digitalne izkušnje</span>
+     <span class="line"> <span class="code-tag">&lt;/span&gt;</span></span>
+     <span class="line"> <span class="code-tag">&lt;/h1&gt;</span></span>
+     <span class="line"><span class="code-tag">&lt;/section&gt;</span></span>`,
+
+    // CSS Snippet
+    `<span class="line"><span class="code-comment">/* Popoln dizajn */</span></span>
+     <span class="line"><span class="code-tag">.spletarija</span> {</span>
+     <span class="line">  <span class="code-attr">display</span>: <span class="code-string">flex</span>;</span>
+     <span class="line">  <span class="code-attr">justify-content</span>: <span class="code-string">center</span>;</span>
+     <span class="line">  <span class="code-attr">align-items</span>: <span class="code-string">awesome</span>;</span>
+     <span class="line">  <span class="code-attr">background</span>: <span class="code-string">premium</span>;</span>
+     <span class="line">  <span class="code-attr">color</span>: <span class="code-string">#fff</span>;</span>
+     <span class="line">}</span>`,
+
+    // JS Snippet
+    `<span class="line"><span class="code-comment">// Logika uspeha</span></span>
+     <span class="line"><span class="code-tag">const</span> <span class="code-attr">success</span> = <span class="code-tag">async</span> () => {</span>
+     <span class="line">  <span class="code-tag">await</span> <span class="code-attr">Spletarija</span>.build();</span>
+     <span class="line">  <span class="code-tag">if</span> (<span class="code-attr">client.happy</span>) {</span>
+     <span class="line">    <span class="code-attr">return</span> <span class="code-string">"Launch 🚀"</span>;</span>
+     <span class="line">  }</span>
+     <span class="line">  <span class="code-tag">return</span> <span class="code-string">"Perfection"</span>;</span>
+     <span class="line">};</span>`
+];
+
+let currentSnippetIndex = 0;
+
+function initMockupCycle() {
+    const mockupContainer = document.querySelector('.mockup-code');
+    if (!mockupContainer) return;
+
+    // Initial state is already in HTML, start cycling after delay
+    setInterval(() => {
+        currentSnippetIndex = (currentSnippetIndex + 1) % mockupSnippets.length;
+
+        // Fade out slightly before swap (optional polish)
+        mockupContainer.style.opacity = '0';
+
+        setTimeout(() => {
+            mockupContainer.innerHTML = mockupSnippets[currentSnippetIndex];
+            mockupContainer.style.opacity = '1';
+        }, 300); // Slight delay for fade out
+
+    }, 6000); // Cycle every 6 seconds
+}
+
 // ========== INITIALIZE ON DOM READY ==========
 document.addEventListener('DOMContentLoaded', () => {
     // Add loaded class to body for initial animations
     document.body.classList.add('loaded');
+
+    // Initialize mockup cycle
+    initMockupCycle();
 
     // Initialize any additional components here
     console.log('🎨 Spletarija loaded successfully');
