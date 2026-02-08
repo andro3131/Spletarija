@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spletarija — Kjer se splet plete</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --text-primary: #f0ede6;
+            --text-secondary: #8a8a9a;
+            --text-muted: #55556a;
+            --accent-1: #ff6b35;
+            --accent-2: #e84a5f;
+            --accent-3: #a855f7;
+            --accent-gradient: linear-gradient(135deg, #ff6b35, #e84a5f, #a855f7);
+            --accent-gradient-h: linear-gradient(90deg, #ff6b35, #e84a5f, #a855f7);
+            --font-display: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+            --font-body: 'DM Sans', sans-serif;
+            --grain-opacity: 0.03;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-1) var(--bg-primary);
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* ========== GRAIN OVERLAY ========== */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            opacity: var(--grain-opacity);
+        }
+
+        /* ========== CUSTOM CURSOR ========== */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+        .cursor-ring {
+            width: 40px;
+            height: 40px;
+            border: 1.5px solid var(--accent-1);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, border-color 0.3s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+        .cursor-ring.hover {
+            width: 60px;
+            height: 60px;
+            border-color: var(--accent-2);
+        }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(20px);
+            background: rgba(10, 10, 15, 0.7);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            transition: transform 0.4s ease;
+        }
+        nav.hidden { transform: translateY(-100%); }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .nav-logo span {
+            -webkit-text-fill-color: var(--text-muted);
+            font-weight: 400;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: block;
+            margin-top: -2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent-gradient-h);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--text-primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.7rem 1.5rem;
+            border: 1px solid var(--accent-1);
+            color: var(--accent-1);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .nav-cta:hover {
+            background: var(--accent-1);
+            color: var(--bg-primary);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 3rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,107,53,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,107,53,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
+        }
+
+        .hero-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            animation: orbFloat 15s ease-in-out infinite;
+        }
+        .hero-orb--1 {
+            width: 600px; height: 600px;
+            background: var(--accent-1);
+            top: -10%; right: -5%;
+            animation-delay: 0s;
+        }
+        .hero-orb--2 {
+            width: 400px; height: 400px;
+            background: var(--accent-3);
+            bottom: 10%; left: -5%;
+            animation-delay: -5s;
+        }
+        .hero-orb--3 {
+            width: 300px; height: 300px;
+            background: var(--accent-2);
+            top: 40%; left: 40%;
+            animation-delay: -10s;
+        }
+
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -40px) scale(1.05); }
+            66% { transform: translate(-20px, 20px) scale(0.95); }
+        }
+
+        .hero-label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-1);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 0.3s;
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 8rem);
+            font-weight: 800;
+            line-height: 0.95;
+            letter-spacing: -0.03em;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .hero-title .line {
+            display: block;
+            overflow: hidden;
+        }
+        .hero-title .line-inner {
+            display: block;
+            transform: translateY(110%);
+            animation: lineReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        .hero-title .line:nth-child(2) .line-inner { animation-delay: 0.15s; }
+        .hero-title .line:nth-child(3) .line-inner { animation-delay: 0.3s; }
+
+        .hero-title .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-title .outline-text {
+            -webkit-text-stroke: 1.5px var(--text-primary);
+            -webkit-text-fill-color: transparent;
+        }
+
+        @keyframes lineReveal {
+            to { transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-description {
+            max-width: 520px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 0.8s;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.8s ease forwards 1s;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255,107,53,0.3);
+        }
+        .btn-primary .arrow {
+            transition: transform 0.3s ease;
+        }
+        .btn-primary:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .btn-ghost {
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-decoration: none;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--text-muted);
+            padding-bottom: 2px;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+        .btn-ghost:hover {
+            color: var(--text-primary);
+            border-color: var(--text-primary);
+        }
+
+        .hero-scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            opacity: 0;
+            animation: fadeUp 0.8s ease forwards 1.5s;
+        }
+        .hero-scroll-indicator span {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: var(--text-muted);
+            position: relative;
+            overflow: hidden;
+        }
+        .scroll-line::after {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--accent-1);
+            animation: scrollPulse 2s ease-in-out infinite;
+        }
+        @keyframes scrollPulse {
+            0% { top: -100%; }
+            50% { top: 100%; }
+            100% { top: 100%; }
+        }
+
+        /* ========== MARQUEE ========== */
+        .marquee-section {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+            background: var(--bg-secondary);
+        }
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marqueeScroll 30s linear infinite;
+        }
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 2.5rem);
+            font-weight: 700;
+            white-space: nowrap;
+            padding: 0 2rem;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+        }
+        .marquee-item:hover {
+            color: var(--text-primary);
+        }
+        .marquee-item .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-1);
+            border-radius: 50%;
+            margin: 0 1.5rem;
+            vertical-align: middle;
+        }
+        @keyframes marqueeScroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ========== SECTION COMMONS ========== */
+        section {
+            padding: 8rem 3rem;
+            position: relative;
+        }
+        .section-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-1);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 550px;
+            line-height: 1.7;
+        }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(60px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Stagger delays */
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+
+        /* ========== SERVICES SECTION ========== */
+        .services {
+            background: var(--bg-primary);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.04);
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-gradient-h);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .service-card:hover::before { transform: scaleX(1); }
+        .service-card:hover {
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.08);
+        }
+        .service-number {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--accent-1);
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .service-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .service-card .service-arrow {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover .service-arrow {
+            color: var(--accent-1);
+            transform: translate(4px, -4px);
+        }
+
+        /* ========== PROJECTS SECTION ========== */
+        .projects {
+            background: var(--bg-secondary);
+        }
+        .projects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.04);
+            cursor: pointer;
+            group: true;
+        }
+        .project-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+            filter: grayscale(40%) brightness(0.7);
+        }
+        .project-card:hover .project-card-image {
+            transform: scale(1.08);
+            filter: grayscale(0%) brightness(1);
+        }
+        .project-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10,10,15,0.95) 0%, rgba(10,10,15,0) 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 2rem;
+            transition: background 0.4s ease;
+        }
+        .project-card:hover .project-card-overlay {
+            background: linear-gradient(to top, rgba(10,10,15,0.98) 0%, rgba(10,10,15,0.2) 60%);
+        }
+        .project-tag {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: var(--accent-1);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .project-card-overlay h3 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            transform: translateY(10px);
+            transition: transform 0.4s ease;
+        }
+        .project-card:hover .project-card-overlay h3 {
+            transform: translateY(0);
+        }
+        .project-card-overlay p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-top: 0.5rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease 0.1s;
+        }
+        .project-card:hover .project-card-overlay p {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== STATS SECTION ========== */
+        .stats-section {
+            background: var(--bg-primary);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-item {
+            padding: 2rem;
+        }
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-label {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* ========== PROCESS SECTION ========== */
+        .process {
+            background: var(--bg-secondary);
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0;
+            margin-top: 4rem;
+            position: relative;
+        }
+        .process-step {
+            padding: 2.5rem;
+            border-right: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+        }
+        .process-step:last-child { border-right: none; }
+        .process-step-number {
+            font-family: var(--font-display);
+            font-size: 5rem;
+            font-weight: 800;
+            color: rgba(255,255,255,0.03);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            transition: color 0.4s ease;
+        }
+        .process-step:hover .process-step-number {
+            color: rgba(255,107,53,0.1);
+        }
+        .process-step h3 {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .process-step p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ========== TECH MARQUEE ========== */
+        .tech-marquee {
+            padding: 3rem 0;
+            background: var(--bg-primary);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        .tech-marquee .marquee-track {
+            animation-duration: 20s;
+            animation-direction: reverse;
+        }
+        .tech-item {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            padding: 0.5rem 2rem;
+            border: 1px solid rgba(255,255,255,0.06);
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .tech-item:hover {
+            color: var(--accent-1);
+            border-color: var(--accent-1);
+        }
+
+        /* ========== TESTIMONIALS ========== */
+        .testimonials {
+            background: var(--bg-primary);
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+        .testimonial-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.04);
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+        .testimonial-card:hover {
+            border-color: rgba(255,255,255,0.08);
+            transform: translateY(-2px);
+        }
+        .testimonial-card .quote-mark {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            line-height: 1;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .testimonial-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--bg-primary);
+        }
+        .testimonial-author-info strong {
+            display: block;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+        }
+        .testimonial-author-info span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* ========== CTA SECTION ========== */
+        .cta-section {
+            background: var(--bg-secondary);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 10rem 3rem;
+        }
+        .cta-section .hero-orb {
+            opacity: 0.1;
+        }
+        .cta-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--bg-primary);
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 4rem 3rem 2rem;
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+        .footer-col h4 {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-col a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-col a:hover {
+            color: var(--accent-1);
+        }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        .footer-bottom span {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+        .footer-socials {
+            display: flex;
+            gap: 1rem;
+        }
+        .footer-socials a {
+            width: 36px;
+            height: 36px;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+        .footer-socials a:hover {
+            border-color: var(--accent-1);
+            color: var(--accent-1);
+        }
+
+        /* ========== MOBILE MENU ========== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 5px;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 4px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -4px);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-steps { grid-template-columns: repeat(2, 1fr); }
+            .process-step:nth-child(2) { border-right: none; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-top { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 1rem 1.5rem; }
+            .nav-links, .nav-cta { display: none; }
+            .menu-toggle { display: flex; }
+            
+            .mobile-menu {
+                display: none;
+                position: fixed;
+                inset: 0;
+                background: rgba(10,10,15,0.98);
+                z-index: 999;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                backdrop-filter: blur(20px);
+            }
+            .mobile-menu.active { display: flex; }
+            .mobile-menu a {
+                font-family: var(--font-display);
+                font-size: 1.8rem;
+                font-weight: 700;
+                color: var(--text-primary);
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            .mobile-menu a:hover { color: var(--accent-1); }
+
+            section { padding: 5rem 1.5rem; }
+            .hero { padding: 7rem 1.5rem 4rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .process-step { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .testimonials-grid { grid-template-columns: 1fr; }
+            .projects-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+            .footer-top { grid-template-columns: 1fr; }
+            .cursor-dot, .cursor-ring { display: none; }
+            .cta-section { padding: 6rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">
+            SPLETARIJA
+            <span>Kjer se splet plete</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#storitve">Storitve</a></li>
+            <li><a href="#projekti">Projekti</a></li>
+            <li><a href="#proces">Proces</a></li>
+            <li><a href="#mnenja">Mnenja</a></li>
+        </ul>
+        <a href="#kontakt" class="nav-cta">Začni projekt</a>
+        <button class="menu-toggle" id="menuToggle">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#storitve" onclick="closeMobile()">Storitve</a>
+        <a href="#projekti" onclick="closeMobile()">Projekti</a>
+        <a href="#proces" onclick="closeMobile()">Proces</a>
+        <a href="#mnenja" onclick="closeMobile()">Mnenja</a>
+        <a href="#kontakt" onclick="closeMobile()" style="color: var(--accent-1);">Začni projekt</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-orb hero-orb--3"></div>
+
+        <div class="hero-label">⚡ Spletne strani, ki pritegnejo</div>
+        
+        <h1 class="hero-title">
+            <span class="line"><span class="line-inner">Ustvarjamo</span></span>
+            <span class="line"><span class="line-inner"><span class="gradient-text">digitalne</span></span></span>
+            <span class="line"><span class="line-inner"><span class="outline-text">izkušnje.</span></span></span>
+        </h1>
+
+        <p class="hero-description">
+            Oblikujemo spletne strani, ki niso samo lepe — ampak pripovedujejo 
+            zgodbo, pritegnejo obiskovalce in spremenijo klike v stranke.
+        </p>
+
+        <div class="hero-ctas">
+            <a href="#kontakt" class="btn-primary">
+                Pogovoriva se <span class="arrow">→</span>
+            </a>
+            <a href="#projekti" class="btn-ghost">Poglej projekte</a>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-item">Spletne strani <span class="dot"></span></span>
+            <span class="marquee-item">Portfolio <span class="dot"></span></span>
+            <span class="marquee-item">Landing page <span class="dot"></span></span>
+            <span class="marquee-item">Predstavitvene strani <span class="dot"></span></span>
+            <span class="marquee-item">Galerije <span class="dot"></span></span>
+            <span class="marquee-item">Vizitke <span class="dot"></span></span>
+            <span class="marquee-item">Animacije <span class="dot"></span></span>
+            <span class="marquee-item">UI/UX oblikovanje <span class="dot"></span></span>
+            <!-- duplicate for seamless loop -->
+            <span class="marquee-item">Spletne strani <span class="dot"></span></span>
+            <span class="marquee-item">Portfolio <span class="dot"></span></span>
+            <span class="marquee-item">Landing page <span class="dot"></span></span>
+            <span class="marquee-item">Predstavitvene strani <span class="dot"></span></span>
+            <span class="marquee-item">Galerije <span class="dot"></span></span>
+            <span class="marquee-item">Vizitke <span class="dot"></span></span>
+            <span class="marquee-item">Animacije <span class="dot"></span></span>
+            <span class="marquee-item">UI/UX oblikovanje <span class="dot"></span></span>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section class="services" id="storitve">
+        <div class="section-label reveal">// Kaj ponujamo</div>
+        <h2 class="section-title reveal delay-1">Storitve, ki<br><span class="gradient-text">premikajo meje.</span></h2>
+        <p class="section-subtitle reveal delay-2">Od prve ideje do zadnjega piksla — poskrbimo za vse.</p>
+
+        <div class="services-grid">
+            <div class="service-card reveal delay-1">
+                <div class="service-number">01</div>
+                <span class="service-icon">◆</span>
+                <h3>Spletne strani</h3>
+                <p>Hitre, odzivne in vizualno dovršene spletne strani, ki delujejo na vseh napravah. Brez predlog — vsaka stran je unikatna.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+            <div class="service-card reveal delay-2">
+                <div class="service-number">02</div>
+                <span class="service-icon">◈</span>
+                <h3>Portfolio & galerije</h3>
+                <p>Pokažite svoje delo v najboljši luči. Interaktivne galerije z animacijami, ki pustijo vtis.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+            <div class="service-card reveal delay-3">
+                <div class="service-number">03</div>
+                <span class="service-icon">◇</span>
+                <h3>Animacije & interakcije</h3>
+                <p>Scroll efekti, parallax, hover animacije — stvari, ki obiskovalce držijo na strani in jih spodbujajo k akciji.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+            <div class="service-card reveal delay-4">
+                <div class="service-number">04</div>
+                <span class="service-icon">○</span>
+                <h3>Optimizacija & hosting</h3>
+                <p>Svetovalje hitrost nalaganja, SEO osnove in deploy na Vercel — brezplačen, zanesljiv hosting z globalnim CDN.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projekti">
+        <div class="projects-header">
+            <div>
+                <div class="section-label reveal">// Izbrani projekti</div>
+                <h2 class="section-title reveal delay-1">Naše<br><span class="gradient-text">zadnje delo.</span></h2>
+            </div>
+            <a href="#" class="btn-ghost reveal delay-2">Vsi projekti</a>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal-scale delay-1">
+                <img class="project-card-image" src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80" alt="Studio MARS">
+                <div class="project-card-overlay">
+                    <span class="project-tag">Snemalni studio</span>
+                    <h3>Studio MARS</h3>
+                    <p>Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.</p>
+                </div>
+            </div>
+            <div class="project-card reveal-scale delay-2">
+                <img class="project-card-image" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" alt="OrangePulse">
+                <div class="project-card-overlay">
+                    <span class="project-tag">Trading platforma</span>
+                    <h3>OrangePulse</h3>
+                    <p>Landing page in dokumentacija za napreden avtomatiziran trading sistem.</p>
+                </div>
+            </div>
+            <div class="project-card reveal-scale delay-3">
+                <img class="project-card-image" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80" alt="Vaš projekt">
+                <div class="project-card-overlay">
+                    <span class="project-tag">Vaš projekt?</span>
+                    <h3>Naslednji je vaš</h3>
+                    <p>Imate idejo? Pogovoriva se in ustvariva nekaj izjemnega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item reveal delay-1">
+                <div class="stat-number" data-target="3">0</div>
+                <div class="stat-label">Dokončani projekti</div>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <div class="stat-number" data-target="17">0</div>
+                <div class="stat-label">Let v digitalnem svetu</div>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-label">% predanost</div>
+            </div>
+            <div class="stat-item reveal delay-4">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Ur dostopnosti</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="proces">
+        <div class="section-label reveal">// Kako delamo</div>
+        <h2 class="section-title reveal delay-1">Od ideje do<br><span class="gradient-text">lansiranja.</span></h2>
+
+        <div class="process-steps">
+            <div class="process-step reveal delay-1">
+                <div class="process-step-number">01</div>
+                <h3>Pogovor</h3>
+                <p>Spoznamo vas, vašo dejavnost in cilje. Definiramo vizijo, obseg in časovnico projekta.</p>
+            </div>
+            <div class="process-step reveal delay-2">
+                <div class="process-step-number">02</div>
+                <h3>Oblikovanje</h3>
+                <p>Pripravimo vizualni koncept — barvne sheme, tipografijo, razporeditev elementov in animacije.</p>
+            </div>
+            <div class="process-step reveal delay-3">
+                <div class="process-step-number">03</div>
+                <h3>Razvoj</h3>
+                <p>Sprogramiramo stran z najnovejšimi tehnologijami. Hitro, odzivno, optimizirano za iskalnike.</p>
+            </div>
+            <div class="process-step reveal delay-4">
+                <div class="process-step-number">04</div>
+                <h3>Lansiranje</h3>
+                <p>Deploy na Vercel, testiranje na vseh napravah, predaja vam s kratkim usposabljanjem.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Marquee -->
+    <div class="tech-marquee">
+        <div class="marquee-track">
+            <span class="tech-item">HTML5</span>
+            <span class="tech-item">CSS3</span>
+            <span class="tech-item">JavaScript</span>
+            <span class="tech-item">Tailwind CSS</span>
+            <span class="tech-item">GSAP</span>
+            <span class="tech-item">Vercel</span>
+            <span class="tech-item">Responsive</span>
+            <span class="tech-item">SEO</span>
+            <span class="tech-item">Animacije</span>
+            <span class="tech-item">UI/UX</span>
+            <span class="tech-item">HTML5</span>
+            <span class="tech-item">CSS3</span>
+            <span class="tech-item">JavaScript</span>
+            <span class="tech-item">Tailwind CSS</span>
+            <span class="tech-item">GSAP</span>
+            <span class="tech-item">Vercel</span>
+            <span class="tech-item">Responsive</span>
+            <span class="tech-item">SEO</span>
+            <span class="tech-item">Animacije</span>
+            <span class="tech-item">UI/UX</span>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="mnenja">
+        <div class="section-label reveal">// Kaj pravijo stranke</div>
+        <h2 class="section-title reveal delay-1">Besede, ki<br><span class="gradient-text">nas ženejo naprej.</span></h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal delay-1">
+                <div class="quote-mark">"</div>
+                <blockquote>
+                    Stran je presegla vsa pričakovanja. Modernejše, hitrejše in lepše od česarkoli, 
+                    kar sem si zamislil. Celoten proces je bil enostaven in profesionalen.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MP</div>
+                    <div class="testimonial-author-info">
+                        <strong>Marko P.</strong>
+                        <span>Lastnik studia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal delay-2">
+                <div class="quote-mark">"</div>
+                <blockquote>
+                    Hitro, zanesljivo in kreativno. Spletarija razume, kaj želiš, še preden 
+                    to poveš do konca. Priporočam vsakomur, ki želi izstopati na spletu.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AK</div>
+                    <div class="testimonial-author-info">
+                        <strong>Ana K.</strong>
+                        <span>Fotografinja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="kontakt">
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        
+        <div class="section-label reveal">// Pripravljen?</div>
+        <h2 class="cta-title reveal delay-1">
+            Ustvariva nekaj<br><span class="gradient-text">izjemnega.</span>
+        </h2>
+        <p class="cta-subtitle reveal delay-2">
+            Vsak velik projekt se začne z enim sporočilom. Pišite nam in pogovoriva se o vaši ideji.
+        </p>
+        <div class="reveal delay-3">
+            <a href="mailto:info@spletarija.si" class="btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+                info@spletarija.si <span class="arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="nav-logo" style="font-size: 1.6rem;">
+                    SPLETARIJA
+                    <span>Kjer se splet plete</span>
+                </div>
+                <p>Oblikujemo digitalne izkušnje za podjetnike, umetnike in vse, ki želijo izstopati na spletu.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigacija</h4>
+                <ul>
+                    <li><a href="#storitve">Storitve</a></li>
+                    <li><a href="#projekti">Projekti</a></li>
+                    <li><a href="#proces">Proces</a></li>
+                    <li><a href="#mnenja">Mnenja</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Storitve</h4>
+                <ul>
+                    <li><a href="#">Spletne strani</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Animacije</a></li>
+                    <li><a href="#">Optimizacija</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="mailto:info@spletarija.si">info@spletarija.si</a></li>
+                    <li><a href="#">Trebnje, Slovenija</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 Spletarija. Vse pravice pridržane.</span>
+            <div class="footer-socials">
+                <a href="#" title="Instagram">IG</a>
+                <a href="#" title="LinkedIn">LI</a>
+                <a href="#" title="X">X</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ========== CUSTOM CURSOR ==========
+        const dot = document.getElementById('cursorDot');
+        const ring = document.getElementById('cursorRing');
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dot.style.left = mouseX - 4 + 'px';
+            dot.style.top = mouseY - 4 + 'px';
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            ring.style.left = ringX + 'px';
+            ring.style.top = ringY + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        // Hover effect on interactive elements
+        document.querySelectorAll('a, button, .service-card, .project-card, .testimonial-card').forEach(el => {
+            el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+            el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
+        });
+
+        // ========== NAV HIDE ON SCROLL ==========
+        let lastScroll = 0;
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                navbar.classList.add('hidden');
+            } else {
+                navbar.classList.remove('hidden');
+            }
+            lastScroll = currentScroll;
+        });
+
+        // ========== MOBILE MENU ==========
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        function closeMobile() {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('active');
+        }
+
+        // ========== SCROLL REVEAL ==========
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ========== ANIMATED COUNTERS ==========
+        const counters = document.querySelectorAll('.stat-number');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.target);
+                    const duration = 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+                    
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            el.textContent = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            el.textContent = target;
+                        }
+                    };
+                    updateCounter();
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(c => counterObserver.observe(c));
+
+        // ========== PARALLAX ORBS ==========
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            document.querySelectorAll('.hero-orb').forEach((orb, i) => {
+                const speed = 0.1 + (i * 0.05);
+                orb.style.transform = `translateY(${scrollY * speed}px)`;
+            });
+        });
+
+        // ========== MAGNETIC EFFECT ON BUTTONS ==========
+        document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+            });
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // ========== TILT ON PROJECT CARDS ==========
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width;
+                const y = (e.clientY - rect.top) / rect.height;
+                const rotateX = (y - 0.5) * -8;
+                const rotateY = (x - 0.5) * 8;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

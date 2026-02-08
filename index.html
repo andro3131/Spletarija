@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Spletarija — Oblikujemo spletne strani, ki niso samo lepe, ampak pripovedujejo zgodbo in spremenijo klike v stranke.">
+    <meta name="keywords" content="spletne strani, web design, oblikovanje, portfolio, Slovenija, Trebnje">
+    <meta name="author" content="Spletarija">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Spletarija — Kjer se splet plete">
+    <meta property="og:description"
+        content="Ustvarjamo digitalne izkušnje za podjetnike, umetnike in vse, ki želijo izstopati na spletu.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sl_SI">
+
+    <title>Spletarija — Kjer se splet plete</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">
+            SPLETARIJA
+            <span>Kjer se splet plete</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#storitve">Storitve</a></li>
+            <li><a href="#projekti">Projekti</a></li>
+            <li><a href="#proces">Proces</a></li>
+            <li><a href="#mnenja">Mnenja</a></li>
+        </ul>
+        <a href="#kontakt" class="nav-cta">Začni projekt</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Odpri meni">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#storitve" onclick="closeMobile()">Storitve</a>
+        <a href="#projekti" onclick="closeMobile()">Projekti</a>
+        <a href="#proces" onclick="closeMobile()">Proces</a>
+        <a href="#mnenja" onclick="closeMobile()">Mnenja</a>
+        <a href="#kontakt" onclick="closeMobile()" style="color: var(--accent-1);">Začni projekt</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+        <div class="hero-orb hero-orb--3"></div>
+
+        <div class="hero-content">
+            <div class="hero-label">
+                <span class="pulse"></span>
+                Spletne strani, ki pritegnejo
+            </div>
+
+            <h1 class="hero-title">
+                <span class="line"><span class="line-inner">Ustvarjamo</span></span>
+                <span class="line"><span class="line-inner"><span class="gradient-text">digitalne</span></span></span>
+                <span class="line"><span class="line-inner"><span class="outline-text">izkušnje.</span></span></span>
+            </h1>
+
+            <p class="hero-description">
+                Oblikujemo spletne strani, ki niso samo lepe — ampak pripovedujejo
+                zgodbo, pritegnejo obiskovalce in spremenijo klike v stranke.
+            </p>
+
+            <div class="hero-ctas">
+                <a href="#kontakt" class="btn-primary">
+                    Pogovoriva se <span class="arrow">→</span>
+                </a>
+                <a href="#projekti" class="btn-ghost">Poglej projekte</a>
+            </div>
+        </div>
+
+        <!-- Hero Visual - Code Mockup Window -->
+        <div class="hero-visual">
+            <div class="floating-elements">
+                <div class="float-item"><span class="icon">⚡</span> Hitrost 98/100</div>
+                <div class="float-item"><span class="icon">📱</span> Odzivno</div>
+                <div class="float-item"><span class="icon">🔍</span> SEO optimizirano</div>
+            </div>
+
+            <div class="mockup-window">
+                <div class="mockup-header">
+                    <div class="mockup-dot red"></div>
+                    <div class="mockup-dot yellow"></div>
+                    <div class="mockup-dot green"></div>
+                    <div class="mockup-url">spletarija.si</div>
+                </div>
+                <div class="mockup-content">
+                    <div class="mockup-code">
+                        <span class="line"><span class="code-comment">// Ustvarjamo spletne čarovnije</span></span>
+                        <span class="line"><span class="code-tag">&lt;section</span> <span
+                                class="code-attr">class</span>=<span class="code-string">"hero"</span><span
+                                class="code-tag">&gt;</span></span>
+                        <span class="line"> <span class="code-tag">&lt;h1&gt;</span>Ustvarjamo</span>
+                        <span class="line"> <span class="code-tag">&lt;span</span> <span
+                                class="code-attr">class</span>=<span class="code-string">"gradient"</span><span
+                                class="code-tag">&gt;</span></span>
+                        <span class="line"> digitalne izkušnje</span>
+                        <span class="line"> <span class="code-tag">&lt;/span&gt;</span></span>
+                        <span class="line"> <span class="code-tag">&lt;/h1&gt;</span></span>
+                        <span class="line"><span class="code-tag">&lt;/section&gt;</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee-section">
+        <div class="marquee-track">
+            <span class="marquee-item">Spletne strani <span class="dot"></span></span>
+            <span class="marquee-item">Portfolio <span class="dot"></span></span>
+            <span class="marquee-item">Landing page <span class="dot"></span></span>
+            <span class="marquee-item">Predstavitvene strani <span class="dot"></span></span>
+            <span class="marquee-item">Galerije <span class="dot"></span></span>
+            <span class="marquee-item">Vizitke <span class="dot"></span></span>
+            <span class="marquee-item">Animacije <span class="dot"></span></span>
+            <span class="marquee-item">UI/UX oblikovanje <span class="dot"></span></span>
+            <!-- duplicate for seamless loop -->
+            <span class="marquee-item">Spletne strani <span class="dot"></span></span>
+            <span class="marquee-item">Portfolio <span class="dot"></span></span>
+            <span class="marquee-item">Landing page <span class="dot"></span></span>
+            <span class="marquee-item">Predstavitvene strani <span class="dot"></span></span>
+            <span class="marquee-item">Galerije <span class="dot"></span></span>
+            <span class="marquee-item">Vizitke <span class="dot"></span></span>
+            <span class="marquee-item">Animacije <span class="dot"></span></span>
+            <span class="marquee-item">UI/UX oblikovanje <span class="dot"></span></span>
+        </div>
+    </div>
+
+    <!-- Services -->
+    <section class="services" id="storitve">
+        <div class="section-label reveal">// Kaj ponujamo</div>
+        <h2 class="section-title reveal delay-1">Storitve, ki<br><span class="gradient-text">premikajo meje.</span></h2>
+        <p class="section-subtitle reveal delay-2">Od prve ideje do zadnjega piksla — poskrbimo za vse.</p>
+
+        <div class="services-grid">
+            <div class="service-card reveal delay-1">
+                <div class="service-number">01</div>
+                <span class="service-icon">◆</span>
+                <h3>Spletne strani</h3>
+                <p>Hitre, odzivne in vizualno dovršene spletne strani, ki delujejo na vseh napravah. Brez predlog —
+                    vsaka stran je unikatna.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+            <div class="service-card reveal delay-2">
+                <div class="service-number">02</div>
+                <span class="service-icon">◈</span>
+                <h3>Portfolio & galerije</h3>
+                <p>Pokažite svoje delo v najboljši luči. Interaktivne galerije z animacijami, ki pustijo vtis.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+            <div class="service-card reveal delay-3">
+                <div class="service-number">03</div>
+                <span class="service-icon">◇</span>
+                <h3>Animacije & interakcije</h3>
+                <p>Scroll efekti, parallax, hover animacije — stvari, ki obiskovalce držijo na strani in jih spodbujajo
+                    k akciji.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+            <div class="service-card reveal delay-4">
+                <div class="service-number">04</div>
+                <span class="service-icon">○</span>
+                <h3>Optimizacija & hosting</h3>
+                <p>Svetovalje hitrost nalaganja, SEO osnove in deploy na Vercel — brezplačen, zanesljiv hosting z
+                    globalnim CDN.</p>
+                <span class="service-arrow">↗</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects" id="projekti">
+        <div class="projects-header">
+            <div>
+                <div class="section-label reveal">// Izbrani projekti</div>
+                <h2 class="section-title reveal delay-1">Naše<br><span class="gradient-text">zadnje delo.</span></h2>
+            </div>
+            <a href="#" class="btn-ghost reveal delay-2">Vsi projekti</a>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card reveal-scale delay-1">
+                <img class="project-card-image"
+                    src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80" alt="Studio MARS">
+                <div class="project-card-overlay">
+                    <span class="project-tag">Snemalni studio</span>
+                    <h3>Studio MARS</h3>
+                    <p>Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.</p>
+                </div>
+            </div>
+            <div class="project-card reveal-scale delay-2">
+                <img class="project-card-image"
+                    src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" alt="OrangePulse">
+                <div class="project-card-overlay">
+                    <span class="project-tag">Trading platforma</span>
+                    <h3>OrangePulse</h3>
+                    <p>Landing page in dokumentacija za napreden avtomatiziran trading sistem.</p>
+                </div>
+            </div>
+            <div class="project-card reveal-scale delay-3">
+                <img class="project-card-image"
+                    src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80" alt="Vaš projekt">
+                <div class="project-card-overlay">
+                    <span class="project-tag">Vaš projekt?</span>
+                    <h3>Naslednji je vaš</h3>
+                    <p>Imate idejo? Pogovoriva se in ustvariva nekaj izjemnega.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-item reveal delay-1">
+                <div class="stat-number" data-target="3" data-suffix="+">0</div>
+                <div class="stat-label">Dokončani projekti</div>
+            </div>
+            <div class="stat-item reveal delay-2">
+                <div class="stat-number" data-target="17" data-suffix="">0</div>
+                <div class="stat-label">Let v digitalnem svetu</div>
+            </div>
+            <div class="stat-item reveal delay-3">
+                <div class="stat-number" data-target="100" data-suffix="%">0</div>
+                <div class="stat-label">Predanost</div>
+            </div>
+            <div class="stat-item reveal delay-4">
+                <div class="stat-number" data-target="24" data-suffix="/7">0</div>
+                <div class="stat-label">Dostopnost</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="process" id="proces">
+        <div class="section-label reveal">// Kako delamo</div>
+        <h2 class="section-title reveal delay-1">Od ideje do<br><span class="gradient-text">lansiranja.</span></h2>
+
+        <div class="process-steps">
+            <div class="process-step reveal delay-1">
+                <div class="process-step-number">01</div>
+                <h3>Pogovor</h3>
+                <p>Spoznamo vas, vašo dejavnost in cilje. Definiramo vizijo, obseg in časovnico projekta.</p>
+            </div>
+            <div class="process-step reveal delay-2">
+                <div class="process-step-number">02</div>
+                <h3>Oblikovanje</h3>
+                <p>Pripravimo vizualni koncept — barvne sheme, tipografijo, razporeditev elementov in animacije.</p>
+            </div>
+            <div class="process-step reveal delay-3">
+                <div class="process-step-number">03</div>
+                <h3>Razvoj</h3>
+                <p>Sprogramiramo stran z najnovejšimi tehnologijami. Hitro, odzivno, optimizirano za iskalnike.</p>
+            </div>
+            <div class="process-step reveal delay-4">
+                <div class="process-step-number">04</div>
+                <h3>Lansiranje</h3>
+                <p>Deploy na Vercel, testiranje na vseh napravah, predaja vam s kratkim usposabljanjem.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Marquee -->
+    <div class="tech-marquee">
+        <div class="marquee-track">
+            <span class="tech-item">HTML5</span>
+            <span class="tech-item">CSS3</span>
+            <span class="tech-item">JavaScript</span>
+            <span class="tech-item">Tailwind CSS</span>
+            <span class="tech-item">GSAP</span>
+            <span class="tech-item">Vercel</span>
+            <span class="tech-item">Responsive</span>
+            <span class="tech-item">SEO</span>
+            <span class="tech-item">Animacije</span>
+            <span class="tech-item">UI/UX</span>
+            <span class="tech-item">HTML5</span>
+            <span class="tech-item">CSS3</span>
+            <span class="tech-item">JavaScript</span>
+            <span class="tech-item">Tailwind CSS</span>
+            <span class="tech-item">GSAP</span>
+            <span class="tech-item">Vercel</span>
+            <span class="tech-item">Responsive</span>
+            <span class="tech-item">SEO</span>
+            <span class="tech-item">Animacije</span>
+            <span class="tech-item">UI/UX</span>
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="mnenja">
+        <div class="section-label reveal">// Kaj pravijo stranke</div>
+        <h2 class="section-title reveal delay-1">Besede, ki<br><span class="gradient-text">nas ženejo naprej.</span>
+        </h2>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal delay-1">
+                <div class="quote-mark">"</div>
+                <blockquote>
+                    Stran je presegla vsa pričakovanja. Modernejše, hitrejše in lepše od česarkoli,
+                    kar sem si zamislil. Celoten proces je bil enostaven in profesionalen.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MP</div>
+                    <div class="testimonial-author-info">
+                        <strong>Marko P.</strong>
+                        <span>Lastnik studia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal delay-2">
+                <div class="quote-mark">"</div>
+                <blockquote>
+                    Hitro, zanesljivo in kreativno. Spletarija razume, kaj želiš, še preden
+                    to poveš do konca. Priporočam vsakomur, ki želi izstopati na spletu.
+                </blockquote>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AK</div>
+                    <div class="testimonial-author-info">
+                        <strong>Ana K.</strong>
+                        <span>Fotografinja</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="kontakt">
+        <div class="hero-orb hero-orb--1"></div>
+        <div class="hero-orb hero-orb--2"></div>
+
+        <div class="section-label reveal">// Pripravljen?</div>
+        <h2 class="cta-title reveal delay-1">
+            Ustvariva nekaj<br><span class="gradient-text">izjemnega.</span>
+        </h2>
+        <p class="cta-subtitle reveal delay-2">
+            Vsak velik projekt se začne z enim sporočilom. Pišite nam in pogovoriva se o vaši ideji.
+        </p>
+        <div class="reveal delay-3">
+            <a href="mailto:info@spletarija.si" class="btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
+                info@spletarija.si <span class="arrow">→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="nav-logo" style="font-size: 1.6rem;">
+                    SPLETARIJA
+                    <span>Kjer se splet plete</span>
+                </div>
+                <p>Oblikujemo digitalne izkušnje za podjetnike, umetnike in vse, ki želijo izstopati na spletu.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigacija</h4>
+                <ul>
+                    <li><a href="#storitve">Storitve</a></li>
+                    <li><a href="#projekti">Projekti</a></li>
+                    <li><a href="#proces">Proces</a></li>
+                    <li><a href="#mnenja">Mnenja</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Storitve</h4>
+                <ul>
+                    <li><a href="#">Spletne strani</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Animacije</a></li>
+                    <li><a href="#">Optimizacija</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="mailto:info@spletarija.si">info@spletarija.si</a></li>
+                    <li><a href="#">Trebnje, Slovenija</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 Spletarija. Vse pravice pridržane.</span>
+            <div class="footer-socials">
+                <a href="#" title="Instagram"><span>IG</span></a>
+                <a href="#" title="LinkedIn"><span>LI</span></a>
+                <a href="#" title="X"><span>X</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
