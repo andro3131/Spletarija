@@ -159,7 +159,7 @@ nav.scrolled {
 .nav-logo {
     font-family: 'Outfit', sans-serif;
     font-size: 1.4rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.02em;
     line-height: 1;
     text-transform: uppercase;
     display: flex;
@@ -185,7 +185,7 @@ nav.scrolled {
 
 .nav-logo .logo-arija {
     font-weight: 200;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     background: linear-gradient(135deg, #ff6b35, #e84a5f, #a855f7, #e84a5f, #ff6b35);
     background-size: 300% 300%;
     -webkit-background-clip: text;
@@ -194,13 +194,13 @@ nav.scrolled {
     animation: gradientShift 6s ease infinite;
 }
 
-.nav-logo span:not(.logo-splet):not(.logo-arija) {
+.nav-logo span:not(.logo-splet):not(.logo-arija):not(.logo-text) {
     font-family: 'DM Sans', sans-serif;
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     color: var(--text-muted);
-    letter-spacing: 0.35em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-top: 4px;
+    margin-top: 3px;
     font-weight: 300;
     -webkit-text-fill-color: var(--text-muted);
     display: block;
@@ -222,7 +222,7 @@ nav.scrolled {
     width: 36px;
     height: 36px;
     object-fit: contain;
-    mix-blend-mode: lighten;
+    border-radius: 50%;
     transition: transform 0.4s ease;
     animation: gentlePulse 4s ease-in-out infinite;
 }
@@ -237,7 +237,7 @@ nav.scrolled {
     width: 50px;
     height: 50px;
     object-fit: contain;
-    mix-blend-mode: lighten;
+    border-radius: 50%;
     animation: gentlePulse 4s ease-in-out infinite;
 }
 
