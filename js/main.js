@@ -476,10 +476,9 @@ function initContactForm() {
 
         // Send email via EmailJS
         try {
-            // EmailJS configuration
-            const serviceID = 'YOUR_SERVICE_ID'; // Nastavite svoj Service ID
-            const templateID = 'YOUR_TEMPLATE_ID'; // Nastavite svoj Template ID
-            const publicKey = 'YOUR_PUBLIC_KEY'; // Nastavite svoj Public Key
+            const serviceID = 'service_4q0d1de';
+            const templateID = 'eTdYAwAwpLt9qgoy3bEuJ';
+            const publicKey = '1uqnzr8kLJtPkA2gY';
 
             const templateParams = {
                 from_name: name,
@@ -489,14 +488,7 @@ function initContactForm() {
                 to_name: 'Spletarije'
             };
 
-            // Za testiranje - prikaži sporočilo brez pošiljanja
-            console.log('Obrazec poslan s podatki:', templateParams);
-
-            // Simulacija uspešnega pošiljanja (odstranite to in odkomentirajte EmailJS kodo)
-            await new Promise(resolve => setTimeout(resolve, 1500));
-
-            // ODKOMENTIRAJTE TO KO NASTAVITE EMAILJS:
-            // await emailjs.send(serviceID, templateID, templateParams, publicKey);
+            await emailjs.send(serviceID, templateID, templateParams, publicKey);
 
             // Show success message
             formStatus.className = 'form-status success';

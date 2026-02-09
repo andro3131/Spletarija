@@ -1,0 +1,42 @@
+<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #1a1a2e; padding: 20px;">
+    <div style="background: linear-gradient(135deg, #ff6b35 0%, #e84a5f 50%, #a855f7 100%); padding: 30px; text-align: center; border-radius: 10px 10px 0 0;">
+        <h1 style="color: white; margin: 0; font-size: 28px;">🕸️ SPLETARIJE</h1>
+        <p style="color: rgba(255,255,255,0.9); margin: 10px 0 0 0; font-size: 14px;">Nova kontaktna poizvedba</p>
+    </div>
+
+    <div style="background: #111118; padding: 30px; border-radius: 0 0 10px 10px; color: #e0e0e0;">
+        <div style="background: rgba(255, 107, 53, 0.1); border-left: 4px solid #ff6b35; padding: 15px; margin-bottom: 20px; border-radius: 0 5px 5px 0;">
+            <strong style="color: #ff6b35;">💡 KLIKNI "REPLY" ZA ODGOVOR STRANKI</strong>
+        </div>
+
+        <h2 style="color: #ffffff; border-bottom: 2px solid #ff6b35; padding-bottom: 10px; font-size: 18px;">Kontaktni podatki</h2>
+
+        <table style="width: 100%; margin: 20px 0; border-collapse: collapse;">
+            <tr>
+                <td style="padding: 12px; background: rgba(255,255,255,0.05); font-weight: bold; width: 100px; border: 1px solid rgba(255,255,255,0.1); color: #a0a0b0;">Ime:</td>
+                <td style="padding: 12px; border: 1px solid rgba(255,255,255,0.1); color: #ffffff;">{{from_name}}</td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; background: rgba(255,255,255,0.05); font-weight: bold; border: 1px solid rgba(255,255,255,0.1); color: #a0a0b0;">Email:</td>
+                <td style="padding: 12px; border: 1px solid rgba(255,255,255,0.1);">
+                    <a href="mailto:{{from_email}}" style="color: #ff6b35; text-decoration: none; font-weight: 600;">{{from_email}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; background: rgba(255,255,255,0.05); font-weight: bold; border: 1px solid rgba(255,255,255,0.1); color: #a0a0b0;">Telefon:</td>
+                <td style="padding: 12px; border: 1px solid rgba(255,255,255,0.1); color: #ffffff;">{{phone}}</td>
+            </tr>
+        </table>
+
+        <h2 style="color: #ffffff; border-bottom: 2px solid #a855f7; padding-bottom: 10px; margin-top: 30px; font-size: 18px;">Sporočilo</h2>
+        <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 5px; margin: 20px 0; line-height: 1.6; border: 1px solid rgba(255,255,255,0.1); color: #e0e0e0;">
+            {{message}}
+        </div>
+
+        <div style="text-align: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); color: #6b7280; font-size: 12px; margin-top: 30px;">
+            <p style="margin: 5px 0;"><strong style="color: #a0a0b0;">Spletarije — Kjer se splet plete</strong></p>
+            <p style="margin: 5px 0;">Trebnje, Slovenija</p>
+            <p style="margin: 5px 0;"><a href="mailto:info@spletarije.si" style="color: #ff6b35; text-decoration: none;">info@spletarije.si</a></p>
+        </div>
+    </div>
+</div>
