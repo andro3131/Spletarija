@@ -480,8 +480,10 @@ nav.scrolled {
 }
 
 .hero-title .outline-text {
-    -webkit-text-stroke: 1.5px var(--text-primary);
-    -webkit-text-fill-color: var(--bg-primary);
+    background: linear-gradient(135deg, rgba(255,107,53,0.4), rgba(232,74,95,0.4), rgba(168,85,247,0.4));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 /* Typing cursor for hero */
@@ -701,6 +703,8 @@ nav.scrolled {
     position: absolute;
     inset: -50px;
     pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
 }
 
 .float-item {
@@ -718,19 +722,19 @@ nav.scrolled {
 
 .float-item:nth-child(1) {
     top: 10%;
-    right: -20%;
+    right: -10%;
     animation-delay: 2s;
 }
 
 .float-item:nth-child(2) {
     bottom: 20%;
-    left: -25%;
+    left: -10%;
     animation-delay: 2.3s;
 }
 
 .float-item:nth-child(3) {
     top: 50%;
-    right: -30%;
+    right: -15%;
     animation-delay: 2.6s;
 }
 
