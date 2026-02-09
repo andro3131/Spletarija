@@ -706,9 +706,9 @@ nav.scrolled {
 .float-item {
     position: absolute;
     padding: 8px 16px;
-    /* background: var(--bg-card); */
-    /* border: 1px solid rgba(255, 255, 255, 0.08); */
-    /* border-radius: 8px; */
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
@@ -726,12 +726,6 @@ nav.scrolled {
     bottom: 20%;
     left: -25%;
     animation-delay: 2.3s;
-}
-
-.float-item:nth-child(3) {
-    top: 50%;
-    right: -30%;
-    animation-delay: 2.6s;
 }
 
 .float-item .icon {
