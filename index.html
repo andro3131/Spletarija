@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/sections.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 
 <body>
@@ -363,8 +366,8 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section" id="kontakt">
+    <!-- Contact Section -->
+    <section class="contact-section" id="kontakt">
         <div class="hero-orb hero-orb--1"></div>
         <div class="hero-orb hero-orb--2"></div>
 
@@ -375,10 +378,63 @@
         <p class="cta-subtitle reveal delay-2">
             Vsak velik projekt se začne z enim sporočilom. Pišite nam in pogovoriva se o vaši ideji.
         </p>
-        <div class="reveal delay-3">
-            <a href="mailto:info@spletarije.si" class="btn-primary" style="font-size: 1.1rem; padding: 1.2rem 2.5rem;">
-                info@spletarije.si <span class="arrow">→</span>
-            </a>
+
+        <div class="contact-content reveal delay-3">
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Ime in priimek</label>
+                    <input type="text" id="name" name="name" placeholder="Janez Novak" required>
+                    <span class="form-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email naslov</label>
+                    <input type="email" id="email" name="email" placeholder="janez@primer.si" required>
+                    <span class="form-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefon (opcijsko)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+386 40 123 456">
+                    <span class="form-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Vaše sporočilo</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Opišite svoj projekt ali idejo..." required></textarea>
+                    <span class="form-error"></span>
+                </div>
+
+                <button type="submit" class="btn-primary btn-submit">
+                    Pošlji sporočilo <span class="arrow">→</span>
+                </button>
+
+                <div class="form-status"></div>
+            </form>
+
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <span class="contact-icon">✉</span>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:info@spletarije.si">info@spletarije.si</a>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-icon">📍</span>
+                    <div>
+                        <h4>Lokacija</h4>
+                        <p>Trebnje, Slovenija</p>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <span class="contact-icon">⏰</span>
+                    <div>
+                        <h4>Odzivnost</h4>
+                        <p>Odgovorimo v 24 urah</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

@@ -392,6 +392,144 @@ function initMockupCycle() {
     }, 7000); // Cycle every 7 seconds
 }
 
+// ========== CONTACT FORM ==========
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const phoneInput = document.getElementById('phone');
+    const messageInput = document.getElementById('message');
+    const submitBtn = form.querySelector('.btn-submit');
+    const formStatus = form.querySelector('.form-status');
+
+    // Email validation regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validate individual field
+    function validateField(input, validator) {
+        const errorSpan = input.parentElement.querySelector('.form-error');
+        const isValid = validator(input.value.trim());
+
+        if (!isValid && input.value.trim() !== '') {
+            input.style.borderColor = '#ff4444';
+            return false;
+        } else {
+            input.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            errorSpan.textContent = '';
+            return true;
+        }
+    }
+
+    // Real-time validation
+    nameInput.addEventListener('blur', () => {
+        validateField(nameInput, (val) => val.length >= 2);
+    });
+
+    emailInput.addEventListener('blur', () => {
+        const errorSpan = emailInput.parentElement.querySelector('.form-error');
+        const isValid = emailRegex.test(emailInput.value.trim());
+
+        if (!isValid && emailInput.value.trim() !== '') {
+            emailInput.style.borderColor = '#ff4444';
+            errorSpan.textContent = 'Vnesite veljaven email naslov';
+        } else {
+            emailInput.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            errorSpan.textContent = '';
+        }
+    });
+
+    messageInput.addEventListener('blur', () => {
+        validateField(messageInput, (val) => val.length >= 10);
+    });
+
+    // Form submission
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Validate all fields
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const phone = phoneInput.value.trim();
+        const message = messageInput.value.trim();
+
+        // Check required fields
+        if (!name || name.length < 2) {
+            showError(nameInput, 'Vnesite ime (vsaj 2 znaka)');
+            return;
+        }
+
+        if (!email || !emailRegex.test(email)) {
+            showError(emailInput, 'Vnesite veljaven email naslov');
+            return;
+        }
+
+        if (!message || message.length < 10) {
+            showError(messageInput, 'Sporočilo mora vsebovati vsaj 10 znakov');
+            return;
+        }
+
+        // Disable submit button
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Pošiljam... <span class="arrow">→</span>';
+
+        // Send email via EmailJS
+        try {
+            // EmailJS configuration
+            const serviceID = 'YOUR_SERVICE_ID'; // Nastavite svoj Service ID
+            const templateID = 'YOUR_TEMPLATE_ID'; // Nastavite svoj Template ID
+            const publicKey = 'YOUR_PUBLIC_KEY'; // Nastavite svoj Public Key
+
+            const templateParams = {
+                from_name: name,
+                from_email: email,
+                phone: phone || 'Ni navedeno',
+                message: message,
+                to_name: 'Spletarije'
+            };
+
+            // Za testiranje - prikaži sporočilo brez pošiljanja
+            console.log('Obrazec poslan s podatki:', templateParams);
+
+            // Simulacija uspešnega pošiljanja (odstranite to in odkomentirajte EmailJS kodo)
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // ODKOMENTIRAJTE TO KO NASTAVITE EMAILJS:
+            // await emailjs.send(serviceID, templateID, templateParams, publicKey);
+
+            // Show success message
+            formStatus.className = 'form-status success';
+            formStatus.textContent = '✓ Sporočilo uspešno poslano! Odgovorili vam bomo v najkrajšem možnem času.';
+
+            // Reset form
+            form.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                formStatus.className = 'form-status';
+            }, 5000);
+
+        } catch (error) {
+            console.error('Napaka pri pošiljanju:', error);
+            formStatus.className = 'form-status error';
+            formStatus.textContent = '✗ Prišlo je do napake. Poskusite znova ali nas kontaktirajte na info@spletarije.si';
+        } finally {
+            // Re-enable submit button
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Pošlji sporočilo <span class="arrow">→</span>';
+        }
+    });
+
+    // Helper function to show error
+    function showError(input, message) {
+        const errorSpan = input.parentElement.querySelector('.form-error');
+        errorSpan.textContent = message;
+        input.style.borderColor = '#ff4444';
+        input.focus();
+    }
+}
+
 // ========== INITIALIZE ON DOM READY ==========
 document.addEventListener('DOMContentLoaded', () => {
     // Add loaded class to body for initial animations
@@ -399,6 +537,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize mockup cycle
     initMockupCycle();
+
+    // Initialize contact form
+    initContactForm();
 
     // Initialize any additional components here
     console.log('🎨 Spletarije loaded successfully');
