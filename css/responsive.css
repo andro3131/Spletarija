@@ -208,8 +208,16 @@
     .mockup-window {
         max-width: 100%;
         transform: none;
-        animation: none;
-        opacity: 1;
+        animation: fadeIn 1s ease forwards 0.5s, floatMockupMobile 6s ease-in-out infinite 1.5s;
+    }
+
+    @keyframes floatMockupMobile {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
     }
 
     .mockup-content {
