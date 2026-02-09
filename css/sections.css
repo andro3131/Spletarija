@@ -409,23 +409,38 @@
 
 .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin-top: 4rem;
+}
+
+.testimonial-slot {
+    position: relative;
+    min-height: 250px;
 }
 
 .testimonial-card {
     background: var(--bg-card);
     border: 1px solid rgba(255, 255, 255, 0.04);
     padding: 2.5rem;
-    position: relative;
-    transition: all 0.4s ease;
+    position: absolute;
+    inset: 0;
     border-radius: 8px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+    pointer-events: none;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    position: relative;
 }
 
 .testimonial-card:hover {
     border-color: rgba(255, 255, 255, 0.08);
-    transform: translateY(-4px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 

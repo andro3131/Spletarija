@@ -392,6 +392,105 @@ function initMockupCycle() {
     }, 7000); // Cycle every 7 seconds
 }
 
+// ========== TESTIMONIALS CAROUSEL ==========
+function initTestimonialsCarousel() {
+    const slots = document.querySelectorAll('.testimonial-slot');
+    if (slots.length === 0) return;
+
+    const allTestimonials = [
+        {
+            quote: 'Stran je presegla vsa pričakovanja. Modernejše, hitrejše in lepše od česarkoli, kar sem si zamislil. Celoten proces je bil enostaven in profesionalen.',
+            initials: 'MP', name: 'Marko P.', role: 'Lastnik studia'
+        },
+        {
+            quote: 'Hitro, zanesljivo in kreativno. Spletarije razume, kaj želiš, še preden to poveš do konca. Priporočam vsakomur, ki želi izstopati na spletu.',
+            initials: 'AK', name: 'Ana K.', role: 'Fotografinja'
+        },
+        {
+            quote: 'Naša nova spletna stran je popolnoma spremenila poslovanje. Več povpraševanj, boljši vtis in stranke nas končno najdejo na spletu.',
+            initials: 'TL', name: 'Tomaž L.', role: 'Podjetnik'
+        },
+        {
+            quote: 'Končno imam stran, ki jo s ponosom pokažem strankam. Animacije in dizajn sta na ravni, ki je nisem pričakoval za to ceno.',
+            initials: 'NV', name: 'Nina V.', role: 'Oblikovalka'
+        },
+        {
+            quote: 'Od prvega klica do končnega produkta — vse je potekalo gladko. Odzivnost in komunikacija sta bila izjemni.',
+            initials: 'JR', name: 'Jan R.', role: 'Trener'
+        },
+        {
+            quote: 'Spletarije so nam postavili stran, ki ne le izgleda odlično, ampak tudi dejansko prinaša rezultate. Priporočam brez zadržkov.',
+            initials: 'SB', name: 'Sara B.', role: 'Lastnica salona'
+        }
+    ];
+
+    // Track which testimonials are shown (indices 0,1,2 at start)
+    let activeIndices = [0, 1, 2];
+
+    function getRandomInterval() {
+        return 5000 + Math.random() * 2000; // 5-7 seconds
+    }
+
+    function buildCard(testimonial) {
+        return `
+            <div class="quote-mark">"</div>
+            <blockquote>${testimonial.quote}</blockquote>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">${testimonial.initials}</div>
+                <div class="testimonial-author-info">
+                    <strong>${testimonial.name}</strong>
+                    <span>${testimonial.role}</span>
+                </div>
+            </div>
+        `;
+    }
+
+    function swapTestimonial() {
+        // Pick a random slot (0, 1, or 2)
+        const slotIndex = Math.floor(Math.random() * 3);
+        const slot = slots[slotIndex];
+        const currentCard = slot.querySelector('.testimonial-card.active');
+
+        // Get available testimonials (not currently shown)
+        const available = allTestimonials
+            .map((t, i) => i)
+            .filter(i => !activeIndices.includes(i));
+
+        if (available.length === 0) return;
+
+        // Pick a random new testimonial
+        const newIndex = available[Math.floor(Math.random() * available.length)];
+
+        // Fade out current
+        if (currentCard) {
+            currentCard.classList.remove('active');
+        }
+
+        // After fade out, swap content and fade in
+        setTimeout(() => {
+            if (currentCard) currentCard.remove();
+
+            const newCard = document.createElement('div');
+            newCard.className = 'testimonial-card';
+            newCard.dataset.index = newIndex;
+            newCard.innerHTML = buildCard(allTestimonials[newIndex]);
+            slot.appendChild(newCard);
+
+            // Trigger reflow for animation
+            newCard.offsetHeight;
+            newCard.classList.add('active');
+
+            activeIndices[slotIndex] = newIndex;
+        }, 600);
+
+        // Schedule next swap
+        setTimeout(swapTestimonial, getRandomInterval());
+    }
+
+    // Start the carousel after initial delay
+    setTimeout(swapTestimonial, getRandomInterval());
+}
+
 // ========== CONTACT FORM ==========
 function initContactForm() {
     const form = document.getElementById('contactForm');
@@ -533,6 +632,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize contact form
     initContactForm();
+
+    // Initialize testimonials carousel
+    initTestimonialsCarousel();
 
     // Initialize any additional components here
     console.log('🎨 Spletarije loaded successfully');

@@ -164,6 +164,14 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonial-slot:nth-child(3) {
+        display: none;
+    }
+
     .footer-top {
         grid-template-columns: 1fr 1fr;
     }
