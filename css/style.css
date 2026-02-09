@@ -481,7 +481,7 @@ nav.scrolled {
 
 .hero-title .outline-text {
     -webkit-text-stroke: 1.5px var(--text-primary);
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: var(--bg-primary);
 }
 
 /* Typing cursor for hero */
