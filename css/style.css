@@ -454,6 +454,8 @@ nav.scrolled {
 .hero-title .line {
     display: block;
     overflow: hidden;
+    padding-bottom: 0.2em;
+    margin-bottom: -0.2em;
 }
 
 .hero-title .line-inner {
