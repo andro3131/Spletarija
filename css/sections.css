@@ -52,8 +52,9 @@
 
 .service-card:hover {
     background: var(--bg-card-hover);
-    transform: translateY(-4px);
-    border-color: rgba(255, 255, 255, 0.08);
+    transform: translateY(-6px);
+    border-color: rgba(255, 107, 53, 0.15);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 107, 53, 0.1);
 }
 
 .service-number {
@@ -72,11 +73,21 @@
     display: block;
     position: relative;
     z-index: 1;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    width: 40px;
+    height: 40px;
 }
 
-.service-card:hover .service-icon {
-    transform: scale(1.1) rotate(5deg);
+.service-icon svg {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    filter: drop-shadow(0 0 0px transparent);
+}
+
+.service-card:hover .service-icon svg {
+    transform: scale(1.15) translateY(-2px);
+    filter: drop-shadow(0 4px 12px rgba(255, 107, 53, 0.3));
 }
 
 .service-card h3 {
@@ -683,6 +694,61 @@
 
 .contact-info-item a:hover {
     color: var(--accent-1);
+}
+
+/* Contact Info Cards */
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+.contact-info-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+}
+
+.contact-info-card p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Contact Social Buttons */
+.contact-socials {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.social-btn.facebook {
+    background: #1877F2;
+}
+
+.social-btn.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
 }
 
 /* ========== FOOTER ========== */
