@@ -341,34 +341,34 @@ lazyImages.forEach(img => imageObserver.observe(img));
 // ========== MOCKUP CODE ANIMATION ==========
 const mockupSnippets = [
     // HTML Snippet (Current)
-    `<span class="line"><span class="code-comment">// Ustvarjamo spletne čarovnije</span></span>
-     <span class="line"><span class="code-tag">&lt;section</span> <span class="code-attr">class</span>=<span class="code-string">"hero"</span><span class="code-tag">&gt;</span></span>
-     <span class="line"> <span class="code-tag">&lt;h1&gt;</span>Ustvarjamo</span>
-     <span class="line"> <span class="code-tag">&lt;span</span> <span class="code-attr">class</span>=<span class="code-string">"gradient"</span><span class="code-tag">&gt;</span></span>
-     <span class="line"> digitalne izkušnje</span>
-     <span class="line"> <span class="code-tag">&lt;/span&gt;</span></span>
-     <span class="line"> <span class="code-tag">&lt;/h1&gt;</span></span>
-     <span class="line"><span class="code-tag">&lt;/section&gt;</span></span>`,
+    `<span class="line" style="animation-delay: 0.1s"><span class="code-comment">// Ustvarjamo spletne čarovnije</span></span>
+     <span class="line" style="animation-delay: 0.3s"><span class="code-tag">&lt;section</span> <span class="code-attr">class</span>=<span class="code-string">"hero"</span><span class="code-tag">&gt;</span></span>
+     <span class="line" style="animation-delay: 0.5s"> <span class="code-tag">&lt;h1&gt;</span>Ustvarjamo</span>
+     <span class="line" style="animation-delay: 0.7s"> <span class="code-tag">&lt;span</span> <span class="code-attr">class</span>=<span class="code-string">"gradient"</span><span class="code-tag">&gt;</span></span>
+     <span class="line" style="animation-delay: 0.9s"> digitalne izkušnje</span>
+     <span class="line" style="animation-delay: 1.1s"> <span class="code-tag">&lt;/span&gt;</span></span>
+     <span class="line" style="animation-delay: 1.3s"> <span class="code-tag">&lt;/h1&gt;</span></span>
+     <span class="line" style="animation-delay: 1.5s"><span class="code-tag">&lt;/section&gt;</span></span>`,
 
     // CSS Snippet
-    `<span class="line"><span class="code-comment">/* Popoln dizajn */</span></span>
-     <span class="line"><span class="code-tag">.spletarije</span> {</span>
-     <span class="line">  <span class="code-attr">display</span>: <span class="code-string">flex</span>;</span>
-     <span class="line">  <span class="code-attr">justify-content</span>: <span class="code-string">center</span>;</span>
-     <span class="line">  <span class="code-attr">align-items</span>: <span class="code-string">awesome</span>;</span>
-     <span class="line">  <span class="code-attr">background</span>: <span class="code-string">premium</span>;</span>
-     <span class="line">  <span class="code-attr">color</span>: <span class="code-string">#fff</span>;</span>
-     <span class="line">}</span>`,
+    `<span class="line" style="animation-delay: 0.1s"><span class="code-comment">/* Popoln dizajn */</span></span>
+     <span class="line" style="animation-delay: 0.3s"><span class="code-tag">.spletarije</span> {</span>
+     <span class="line" style="animation-delay: 0.5s">  <span class="code-attr">display</span>: <span class="code-string">flex</span>;</span>
+     <span class="line" style="animation-delay: 0.7s">  <span class="code-attr">justify-content</span>: <span class="code-string">center</span>;</span>
+     <span class="line" style="animation-delay: 0.9s">  <span class="code-attr">align-items</span>: <span class="code-string">awesome</span>;</span>
+     <span class="line" style="animation-delay: 1.1s">  <span class="code-attr">background</span>: <span class="code-string">premium</span>;</span>
+     <span class="line" style="animation-delay: 1.3s">  <span class="code-attr">color</span>: <span class="code-string">#fff</span>;</span>
+     <span class="line" style="animation-delay: 1.5s">}</span>`,
 
     // JS Snippet
-    `<span class="line"><span class="code-comment">// Logika uspeha</span></span>
-     <span class="line"><span class="code-tag">const</span> <span class="code-attr">success</span> = <span class="code-tag">async</span> () => {</span>
-     <span class="line">  <span class="code-tag">await</span> <span class="code-attr">Spletarije</span>.build();</span>
-     <span class="line">  <span class="code-tag">if</span> (<span class="code-attr">client.happy</span>) {</span>
-     <span class="line">    <span class="code-attr">return</span> <span class="code-string">"Launch 🚀"</span>;</span>
-     <span class="line">  }</span>
-     <span class="line">  <span class="code-tag">return</span> <span class="code-string">"Perfection"</span>;</span>
-     <span class="line">};</span>`
+    `<span class="line" style="animation-delay: 0.1s"><span class="code-comment">// Logika uspeha</span></span>
+     <span class="line" style="animation-delay: 0.3s"><span class="code-tag">const</span> <span class="code-attr">success</span> = <span class="code-tag">async</span> () => {</span>
+     <span class="line" style="animation-delay: 0.5s">  <span class="code-tag">await</span> <span class="code-attr">Spletarije</span>.build();</span>
+     <span class="line" style="animation-delay: 0.7s">  <span class="code-tag">if</span> (<span class="code-attr">client.happy</span>) {</span>
+     <span class="line" style="animation-delay: 0.9s">    <span class="code-attr">return</span> <span class="code-string">"Launch 🚀"</span>;</span>
+     <span class="line" style="animation-delay: 1.1s">  }</span>
+     <span class="line" style="animation-delay: 1.3s">  <span class="code-tag">return</span> <span class="code-string">"Perfection"</span>;</span>
+     <span class="line" style="animation-delay: 1.5s">};</span>`
 ];
 
 let currentSnippetIndex = 0;
@@ -387,9 +387,9 @@ function initMockupCycle() {
         setTimeout(() => {
             mockupContainer.innerHTML = mockupSnippets[currentSnippetIndex];
             mockupContainer.style.opacity = '1';
-        }, 300); // Slight delay for fade out
+        }, 50); // Fast fade out
 
-    }, 6000); // Cycle every 6 seconds
+    }, 7000); // Cycle every 7 seconds
 }
 
 // ========== INITIALIZE ON DOM READY ==========
