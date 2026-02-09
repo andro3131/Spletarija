@@ -209,6 +209,7 @@
         max-width: 100%;
         transform: none;
         animation: none;
+        opacity: 1;
     }
 
     .mockup-content {
