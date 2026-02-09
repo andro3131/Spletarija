@@ -352,7 +352,7 @@ const mockupSnippets = [
 
     // CSS Snippet
     `<span class="line"><span class="code-comment">/* Popoln dizajn */</span></span>
-     <span class="line"><span class="code-tag">.spletarija</span> {</span>
+     <span class="line"><span class="code-tag">.spletarije</span> {</span>
      <span class="line">  <span class="code-attr">display</span>: <span class="code-string">flex</span>;</span>
      <span class="line">  <span class="code-attr">justify-content</span>: <span class="code-string">center</span>;</span>
      <span class="line">  <span class="code-attr">align-items</span>: <span class="code-string">awesome</span>;</span>
@@ -363,7 +363,7 @@ const mockupSnippets = [
     // JS Snippet
     `<span class="line"><span class="code-comment">// Logika uspeha</span></span>
      <span class="line"><span class="code-tag">const</span> <span class="code-attr">success</span> = <span class="code-tag">async</span> () => {</span>
-     <span class="line">  <span class="code-tag">await</span> <span class="code-attr">Spletarija</span>.build();</span>
+     <span class="line">  <span class="code-tag">await</span> <span class="code-attr">Spletarije</span>.build();</span>
      <span class="line">  <span class="code-tag">if</span> (<span class="code-attr">client.happy</span>) {</span>
      <span class="line">    <span class="code-attr">return</span> <span class="code-string">"Launch 🚀"</span>;</span>
      <span class="line">  }</span>
@@ -401,5 +401,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initMockupCycle();
 
     // Initialize any additional components here
-    console.log('🎨 Spletarija loaded successfully');
+    console.log('🎨 Spletarije loaded successfully');
 });
