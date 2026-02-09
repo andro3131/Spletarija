@@ -477,7 +477,7 @@ function initContactForm() {
         // Send email via EmailJS
         try {
             const serviceID = 'service_4q0d1de';
-            const templateID = 'template_i0g2e98';
+            const templateID = 'template_3dbz4cb';
             const publicKey = '1uqnzr8kLJtPkA2gY';
 
             const templateParams = {
