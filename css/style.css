@@ -480,10 +480,9 @@ nav.scrolled {
 }
 
 .hero-title .outline-text {
-    background: linear-gradient(135deg, rgba(255,107,53,0.4), rgba(232,74,95,0.4), rgba(168,85,247,0.4));
-    -webkit-background-clip: text;
+    -webkit-text-stroke: 2px var(--text-primary);
     -webkit-text-fill-color: transparent;
-    background-clip: text;
+    paint-order: stroke fill;
 }
 
 /* Typing cursor for hero */
