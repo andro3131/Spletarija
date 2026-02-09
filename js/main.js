@@ -504,8 +504,9 @@ function initContactForm() {
 
         } catch (error) {
             console.error('Napaka pri pošiljanju:', error);
+            const errorMsg = error?.text || error?.message || error || 'Neznana napaka';
             formStatus.className = 'form-status error';
-            formStatus.textContent = '✗ Prišlo je do napake. Poskusite znova ali nas kontaktirajte na info@spletarije.si';
+            formStatus.textContent = '✗ Napaka: ' + errorMsg;
         } finally {
             // Re-enable submit button
             submitBtn.disabled = false;
