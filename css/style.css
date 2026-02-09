@@ -480,9 +480,17 @@ nav.scrolled {
 }
 
 .hero-title .outline-text {
-    -webkit-text-stroke: 2px var(--text-primary);
     -webkit-text-fill-color: transparent;
-    paint-order: stroke fill;
+    color: transparent;
+    text-shadow:
+        -1px -1px 0 var(--text-primary),
+         1px -1px 0 var(--text-primary),
+        -1px  1px 0 var(--text-primary),
+         1px  1px 0 var(--text-primary),
+         0   -1px 0 var(--text-primary),
+         0    1px 0 var(--text-primary),
+        -1px  0   0 var(--text-primary),
+         1px  0   0 var(--text-primary);
 }
 
 /* Typing cursor for hero */
