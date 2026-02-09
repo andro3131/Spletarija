@@ -706,9 +706,9 @@ nav.scrolled {
 .float-item {
     position: absolute;
     padding: 8px 16px;
-    background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 8px;
+    /* background: var(--bg-card); */
+    /* border: 1px solid rgba(255, 255, 255, 0.08); */
+    /* border-radius: 8px; */
     font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-secondary);
