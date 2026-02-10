@@ -146,7 +146,8 @@
         display: none;
     }
 
-    .hero-web-mesh {
+    .hero-web-mesh,
+    .hero-mesh-nodes {
         display: none;
     }
 }
