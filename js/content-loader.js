@@ -160,10 +160,17 @@ function applyProjects(data) {
     grid.innerHTML = '';
 
     data.items.forEach((item, i) => {
+        const images = item.images || (item.image ? [item.image] : []);
+        const isSlideshow = images.length > 1;
         const card = document.createElement('div');
-        card.className = 'project-card reveal-scale delay-' + (i + 1);
+        card.className = 'project-card' + (isSlideshow ? ' project-slideshow' : '') + ' reveal-scale delay-' + (i + 1);
+
+        const imgsHtml = images.map((src, j) =>
+            `<img class="project-card-image${j === 0 ? ' active' : ''}" src="${escapeHtml(src)}" alt="${escapeHtml(item.title)}">`
+        ).join('');
+
         card.innerHTML = `
-            <img class="project-card-image" src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}">
+            ${imgsHtml}
             <div class="project-card-overlay">
                 <span class="project-tag">${escapeHtml(item.tag)}</span>
                 <h3>${escapeHtml(item.title)}</h3>
@@ -171,6 +178,18 @@ function applyProjects(data) {
             </div>
         `;
         grid.appendChild(card);
+    });
+
+    // Init slideshows
+    grid.querySelectorAll('.project-slideshow').forEach(card => {
+        const imgs = card.querySelectorAll('.project-card-image');
+        if (imgs.length <= 1) return;
+        let cur = 0;
+        setInterval(() => {
+            imgs[cur].classList.remove('active');
+            cur = (cur + 1) % imgs.length;
+            imgs[cur].classList.add('active');
+        }, 5000);
     });
 
     // Re-observe for reveal animations

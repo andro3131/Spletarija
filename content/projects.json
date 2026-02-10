@@ -7,19 +7,28 @@
       "tag": "Snemalni studio",
       "title": "Studio MARS",
       "description": "Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.",
-      "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758544/Screenshot_2026-02-10_at_22.09.38_fm5xtv.png",
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758549/Screenshot_2026-02-10_at_22.09.33_u8rz8g.png"
+      ]
     },
     {
       "tag": "Trading platforma",
       "title": "OrangePulse",
       "description": "Landing page in dokumentacija za napreden avtomatiziran trading sistem.",
-      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758392/Screenshot_2026-02-10_at_22.10.32_l4xaho.png",
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758395/Screenshot_2026-02-10_at_22.16.55_kdwqrj.png",
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758405/Screenshot_2026-02-10_at_22.16.44_adiysm.png"
+      ]
     },
     {
       "tag": "Vaš projekt?",
       "title": "Naslednji je vaš",
       "description": "Imate idejo? Pogovorimo se in ustvarimo skupaj nekaj izjemnega.",
-      "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80"
+      "images": [
+        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80"
+      ]
     }
   ]
 }
