@@ -55,7 +55,7 @@ export function initTestimonialsCarousel() {
     const slots = document.querySelectorAll('.testimonial-slot');
     if (slots.length === 0) return;
 
-    const allTestimonials = [
+    const allTestimonials = window.__testimonials || [
         {
             quote: 'Stran je presegla vsa pričakovanja. Modernejše, hitrejše in lepše od česarkoli, kar sem si zamislil. Celoten proces je bil enostaven in profesionalen.',
             initials: 'MP', name: 'Marko P.', role: 'Lastnik studia'

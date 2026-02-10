@@ -16,6 +16,9 @@ spletarija-logo-final.html
 font-preview.html
 css/style-old.css
 
+# Dependencies
+node_modules/
+
 # Environment
 .env
 .env.local

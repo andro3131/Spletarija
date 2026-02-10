@@ -1,0 +1,25 @@
+{
+  "sectionLabel": "// Izbrani projekti",
+  "sectionTitle": "Naši nedavni",
+  "sectionTitleGradient": "projekti.",
+  "items": [
+    {
+      "tag": "Snemalni studio",
+      "title": "Studio MARS",
+      "description": "Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.",
+      "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=800&q=80"
+    },
+    {
+      "tag": "Trading platforma",
+      "title": "OrangePulse",
+      "description": "Landing page in dokumentacija za napreden avtomatiziran trading sistem.",
+      "image": "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"
+    },
+    {
+      "tag": "Vaš projekt?",
+      "title": "Naslednji je vaš",
+      "description": "Imate idejo? Pogovorimo se in ustvarimo skupaj nekaj izjemnega.",
+      "image": "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80"
+    }
+  ]
+}

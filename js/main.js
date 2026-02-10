@@ -3,9 +3,9 @@
 // Import modules
 import './cursor.js';
 import './animations.js';
-import { initMockupCycle } from './components.js';
-import { initTestimonialsCarousel } from './components.js';
+import { initMockupCycle, initTestimonialsCarousel } from './components.js';
 import { initContactForm } from './contact.js';
+import { loadContent } from './content-loader.js';
 
 // ========== NAV HIDE ON SCROLL ==========
 let lastScroll = 0;
@@ -76,8 +76,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ========== INITIALIZE ON DOM READY ==========
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     document.body.classList.add('loaded');
+
+    await loadContent();
 
     initMockupCycle();
     initContactForm();

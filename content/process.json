@@ -1,0 +1,27 @@
+{
+  "sectionLabel": "// Kako delamo",
+  "sectionTitle": "Od ideje do",
+  "sectionTitleGradient": "lansiranja.",
+  "items": [
+    {
+      "number": "01",
+      "title": "Pogovor",
+      "description": "Spoznamo vas, vašo dejavnost in cilje. Definiramo vizijo, obseg in časovnico projekta."
+    },
+    {
+      "number": "02",
+      "title": "Oblikovanje",
+      "description": "Pripravimo vizualni koncept — barvne sheme, tipografijo, razporeditev elementov in animacije."
+    },
+    {
+      "number": "03",
+      "title": "Razvoj",
+      "description": "Sprogramiramo stran z najnovejšimi tehnologijami. Hitro, odzivno, optimizirano za iskalnike."
+    },
+    {
+      "number": "04",
+      "title": "Lansiranje",
+      "description": "Deploy na Vercel, testiranje na vseh napravah, predaja vam s kratkim usposabljanjem."
+    }
+  ]
+}

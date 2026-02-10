@@ -1,0 +1,28 @@
+{
+  "sectionLabel": "// Kaj ponujamo",
+  "sectionTitle": "Storitve, ki",
+  "sectionTitleGradient": "premikajo meje.",
+  "sectionSubtitle": "Od prve ideje do zadnjega piksla — poskrbimo za vse.",
+  "items": [
+    {
+      "number": "01",
+      "title": "Spletne strani",
+      "description": "Hitre, odzivne in vizualno dovršene spletne strani, ki delujejo na vseh napravah. Brez predlog — vsaka stran je unikatna."
+    },
+    {
+      "number": "02",
+      "title": "Portfolio & galerije",
+      "description": "Pokažite svoje delo v najboljši luči. Interaktivne galerije z animacijami, ki pustijo vtis."
+    },
+    {
+      "number": "03",
+      "title": "Animacije & interakcije",
+      "description": "Scroll efekti, parallax, hover animacije — stvari, ki obiskovalce držijo na strani in jih spodbujajo k akciji."
+    },
+    {
+      "number": "04",
+      "title": "Optimizacija & hosting",
+      "description": "Svetovalje hitrost nalaganja, SEO osnove in deploy na Vercel — brezplačen, zanesljiv hosting z globalnim CDN."
+    }
+  ]
+}

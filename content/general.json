@@ -1,0 +1,19 @@
+{
+  "companyName": "Spletarije",
+  "tagline": "Pletemo digitalne zgodbe",
+  "phone": "041 758 572",
+  "phoneLink": "+38641758572",
+  "email": "info@spletarije.si",
+  "address": {
+    "line1": "Spletarija",
+    "line2": "Trebnje, Slovenija"
+  },
+  "workingHours": "Po predhodnem dogovoru",
+  "workingHoursNote": "Priporočamo rezervacijo vnaprej",
+  "socials": {
+    "facebook": "https://www.facebook.com/profile.php?id=61587651876981",
+    "instagram": ""
+  },
+  "footerDescription": "Oblikujemo digitalne izkušnje za podjetnike, umetnike in vse, ki želijo izstopati na spletu.",
+  "copyright": "© 2026 Spletarije. Vse pravice pridržane."
+}

@@ -1,0 +1,43 @@
+{
+  "sectionLabel": "// Kaj pravijo stranke",
+  "sectionTitle": "Besede, ki nas",
+  "sectionTitleGradient": "ženejo naprej.",
+  "items": [
+    {
+      "quote": "Stran je presegla vsa pričakovanja. Modernejše, hitrejše in lepše od česarkoli, kar sem si zamislil. Celoten proces je bil enostaven in profesionalen.",
+      "initials": "MP",
+      "name": "Marko P.",
+      "role": "Lastnik studia"
+    },
+    {
+      "quote": "Hitro, zanesljivo in kreativno. Spletarije razume, kaj želiš, še preden to poveš do konca. Priporočam vsakomur, ki želi izstopati na spletu.",
+      "initials": "AK",
+      "name": "Ana K.",
+      "role": "Fotografinja"
+    },
+    {
+      "quote": "Naša nova spletna stran je popolnoma spremenila poslovanje. Več povpraševanj, boljši vtis in stranke nas končno najdejo na spletu.",
+      "initials": "TL",
+      "name": "Tomaž L.",
+      "role": "Podjetnik"
+    },
+    {
+      "quote": "Končno imam stran, ki jo s ponosom pokažem strankam. Animacije in dizajn sta na ravni, ki je nisem pričakoval za to ceno.",
+      "initials": "NV",
+      "name": "Nina V.",
+      "role": "Oblikovalka"
+    },
+    {
+      "quote": "Od prvega klica do končnega produkta — vse je potekalo gladko. Odzivnost in komunikacija sta bila izjemni.",
+      "initials": "JR",
+      "name": "Jan R.",
+      "role": "Trener"
+    },
+    {
+      "quote": "Spletarije so nam postavili stran, ki ne le izgleda odlično, ampak tudi dejansko prinaša rezultate. Priporočam brez zadržkov.",
+      "initials": "SB",
+      "name": "Sara B.",
+      "role": "Lastnica salona"
+    }
+  ]
+}
