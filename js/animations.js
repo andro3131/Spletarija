@@ -84,7 +84,7 @@ const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !counterInterval) {
             animateCounters();
-            counterInterval = setInterval(animateCounters, 7000);
+            counterInterval = setInterval(animateCounters, 5000);
         }
         if (!entry.isIntersecting && counterInterval) {
             clearInterval(counterInterval);
