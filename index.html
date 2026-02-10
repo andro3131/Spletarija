@@ -328,7 +328,7 @@
             <a href="#" class="btn-ghost reveal delay-2">Vsi projekti</a>
         </div>
         <div class="projects-grid">
-            <div class="project-card project-slideshow reveal-scale delay-1">
+            <div class="project-card project-slideshow reveal-scale delay-1" data-url="https://www.studio-mars.com">
                 <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1770758544/Screenshot_2026-02-10_at_22.09.38_fm5xtv.png" alt="Studio MARS">
                 <img class="project-card-image" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1770758549/Screenshot_2026-02-10_at_22.09.33_u8rz8g.png" alt="Studio MARS">
                 <div class="project-card-overlay">
@@ -337,7 +337,7 @@
                     <p>Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.</p>
                 </div>
             </div>
-            <div class="project-card project-slideshow reveal-scale delay-2">
+            <div class="project-card project-slideshow reveal-scale delay-2" data-url="https://orangepulse.net">
                 <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1770758392/Screenshot_2026-02-10_at_22.10.32_l4xaho.png" alt="OrangePulse">
                 <img class="project-card-image" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1770758395/Screenshot_2026-02-10_at_22.16.55_kdwqrj.png" alt="OrangePulse">
                 <img class="project-card-image" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1770758405/Screenshot_2026-02-10_at_22.16.44_adiysm.png" alt="OrangePulse">
@@ -653,6 +653,18 @@
             </div>
         </div>
     </footer>
+
+    <!-- Project Preview Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="project-modal-header">
+            <div class="project-modal-url" id="projectModalUrl"></div>
+            <div class="project-modal-actions">
+                <a class="project-modal-newtab" id="projectModalNewTab" href="#" target="_blank" rel="noopener">Odpri v novem zavihku</a>
+                <button class="project-modal-close" id="projectModalClose">&times;</button>
+            </div>
+        </div>
+        <iframe class="project-modal-iframe" id="projectModalIframe" src="" title="Project preview"></iframe>
+    </div>
 
     <!-- Scripts -->
     <script type="module" src="js/main.js"></script>

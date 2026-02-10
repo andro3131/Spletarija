@@ -164,6 +164,7 @@ function applyProjects(data) {
         const isSlideshow = images.length > 1;
         const card = document.createElement('div');
         card.className = 'project-card' + (isSlideshow ? ' project-slideshow' : '') + ' reveal-scale delay-' + (i + 1);
+        if (item.url) card.dataset.url = item.url;
 
         const imgsHtml = images.map((src, j) =>
             `<img class="project-card-image${j === 0 ? ' active' : ''}" src="${escapeHtml(src)}" alt="${escapeHtml(item.title)}">`

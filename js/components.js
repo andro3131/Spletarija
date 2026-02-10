@@ -152,3 +152,43 @@ document.querySelectorAll('.project-slideshow').forEach(card => {
         images[current].classList.add('active');
     }, 5000);
 });
+
+// ========== PROJECT PREVIEW MODAL ==========
+const projectModal = document.getElementById('projectModal');
+const projectModalIframe = document.getElementById('projectModalIframe');
+const projectModalUrl = document.getElementById('projectModalUrl');
+const projectModalNewTab = document.getElementById('projectModalNewTab');
+const projectModalClose = document.getElementById('projectModalClose');
+
+function openProjectModal(url) {
+    if (!projectModal || !url) return;
+    projectModalIframe.src = url;
+    projectModalUrl.textContent = url.replace('https://', '');
+    projectModalNewTab.href = url;
+    projectModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    if (!projectModal) return;
+    projectModal.classList.remove('active');
+    document.body.style.overflow = '';
+    setTimeout(() => { projectModalIframe.src = ''; }, 300);
+}
+
+if (projectModalClose) projectModalClose.addEventListener('click', closeProjectModal);
+if (projectModal) projectModal.addEventListener('click', (e) => {
+    if (e.target === projectModal) closeProjectModal();
+});
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeProjectModal();
+});
+
+// Attach click to project cards (including dynamically loaded ones)
+document.addEventListener('click', (e) => {
+    const card = e.target.closest('.project-card[data-url]');
+    if (card) {
+        e.preventDefault();
+        openProjectModal(card.dataset.url);
+    }
+});
