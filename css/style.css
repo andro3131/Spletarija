@@ -356,6 +356,28 @@ nav.scrolled {
     -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
 }
 
+.hero-web-mesh {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 600px;
+    z-index: 1;
+    opacity: 0;
+    animation: fadeIn 2s ease forwards 1.5s;
+}
+
+.hero-web-mesh line {
+    stroke-dasharray: 4 4;
+    animation: meshPulse 4s ease-in-out infinite;
+}
+
+@keyframes meshPulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
 .hero-orb {
     position: absolute;
     border-radius: 50%;
@@ -726,6 +748,12 @@ nav.scrolled {
     bottom: 20%;
     left: -25%;
     animation-delay: 2.3s;
+}
+
+.float-item:nth-child(3) {
+    bottom: 5%;
+    right: -10%;
+    animation-delay: 2.6s;
 }
 
 .float-item .icon {

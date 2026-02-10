@@ -145,6 +145,10 @@
     .floating-elements {
         display: none;
     }
+
+    .hero-web-mesh {
+        display: none;
+    }
 }
 
 @media (max-width: 1024px) {
