@@ -139,3 +139,16 @@ export function initTestimonialsCarousel() {
 
     setTimeout(swapTestimonial, getRandomInterval());
 }
+
+// ========== PROJECT CARD SLIDESHOW ==========
+document.querySelectorAll('.project-slideshow').forEach(card => {
+    const images = card.querySelectorAll('.project-card-image');
+    if (images.length <= 1) return;
+
+    let current = 0;
+    setInterval(() => {
+        images[current].classList.remove('active');
+        current = (current + 1) % images.length;
+        images[current].classList.add('active');
+    }, 5000);
+});
