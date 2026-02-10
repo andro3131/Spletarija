@@ -53,36 +53,48 @@ const splitTextObserver = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.split-text').forEach(el => splitTextObserver.observe(el));
 
-// ========== ANIMATED COUNTERS ==========
+// ========== ANIMATED COUNTERS (looping) ==========
 const counters = document.querySelectorAll('.stat-number');
+let counterInterval = null;
+
+function animateCounters() {
+    counters.forEach(el => {
+        const target = parseInt(el.dataset.target);
+        const suffix = el.dataset.suffix || '';
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+
+        const updateCounter = () => {
+            current += step;
+            if (current < target) {
+                el.innerHTML = Math.floor(current) + `<span class="stat-suffix">${suffix}</span>`;
+                requestAnimationFrame(updateCounter);
+            } else {
+                el.innerHTML = target + `<span class="stat-suffix">${suffix}</span>`;
+            }
+        };
+
+        el.innerHTML = '0' + `<span class="stat-suffix">${suffix}</span>`;
+        updateCounter();
+    });
+}
 
 const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.dataset.target);
-            const suffix = el.dataset.suffix || '';
-            const duration = 2000;
-            const step = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += step;
-                if (current < target) {
-                    el.innerHTML = Math.floor(current) + `<span class="stat-suffix">${suffix}</span>`;
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    el.innerHTML = target + `<span class="stat-suffix">${suffix}</span>`;
-                }
-            };
-
-            updateCounter();
-            counterObserver.unobserve(el);
+        if (entry.isIntersecting && !counterInterval) {
+            animateCounters();
+            counterInterval = setInterval(animateCounters, 7000);
+        }
+        if (!entry.isIntersecting && counterInterval) {
+            clearInterval(counterInterval);
+            counterInterval = null;
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.3 });
 
-counters.forEach(c => counterObserver.observe(c));
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) counterObserver.observe(statsSection);
 
 // ========== PARALLAX ORBS ==========
 let ticking = false;

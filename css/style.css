@@ -406,15 +406,15 @@ nav.scrolled {
     animation: nodeGlow 8s ease-in-out infinite;
 }
 
-/* Positions: mesh vertices, avoiding far-right (near mockup) */
-.mesh-node--1 { top: 10%;  left: 48%;  color: #ff6b35; animation-duration: 8s;   animation-delay: 0s; }
-.mesh-node--2 { top: 27%;  left: 28%;  color: #e84a5f; animation-duration: 9.5s;  animation-delay: 1.2s; }
-.mesh-node--3 { top: 25%;  left: 58%;  color: #a855f7; animation-duration: 7.5s;  animation-delay: 3s; }
-.mesh-node--4 { top: 42%;  left: 18%;  color: #ff6b35; animation-duration: 10s;   animation-delay: 0.8s; }
-.mesh-node--5 { top: 44%;  left: 51%;  color: #a855f7; animation-duration: 8.5s;  animation-delay: 4.5s; }
-.mesh-node--6 { top: 58%;  left: 26%;  color: #e84a5f; animation-duration: 9s;    animation-delay: 2.2s; }
-.mesh-node--7 { top: 67%;  left: 35%;  color: #ff6b35; animation-duration: 7s;    animation-delay: 5.5s; }
-.mesh-node--8 { top: 85%;  left: 48%;  color: #a855f7; animation-duration: 10.5s; animation-delay: 3.8s; }
+/* Positions: aligned to SVG mesh vertices, avoiding far-right (near mockup) */
+.mesh-node--1 { top: 9%;   left: 46%;  color: #ff6b35; animation-duration: 8s;    animation-delay: 0s; }
+.mesh-node--2 { top: 26%;  left: 26%;  color: #e84a5f; animation-duration: 9.5s;  animation-delay: 1.2s; }
+.mesh-node--3 { top: 18%;  left: 36%;  color: #a855f7; animation-duration: 7.5s;  animation-delay: 3s; }
+.mesh-node--4 { top: 47%;  left: 16%;  color: #ff6b35; animation-duration: 10s;   animation-delay: 0.8s; }
+.mesh-node--5 { top: 43%;  left: 49%;  color: #a855f7; animation-duration: 8.5s;  animation-delay: 4.5s; }
+.mesh-node--6 { top: 56%;  left: 24%;  color: #e84a5f; animation-duration: 9s;    animation-delay: 2.2s; }
+.mesh-node--7 { top: 65%;  left: 33%;  color: #ff6b35; animation-duration: 7s;    animation-delay: 5.5s; }
+.mesh-node--8 { top: 84%;  left: 46%;  color: #a855f7; animation-duration: 10.5s; animation-delay: 3.8s; }
 
 @keyframes nodeGlow {
     0%, 100% { opacity: 0; transform: scale(0.6); }

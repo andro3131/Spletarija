@@ -297,52 +297,62 @@
 .process-steps {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0;
+    gap: 1.5rem;
     margin-top: 4rem;
     position: relative;
 }
 
-/* Connecting line */
-.process-steps::before {
+.process-step {
+    padding: 2.5rem 2rem;
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    overflow: hidden;
+}
+
+.process-step::before {
     content: '';
     position: absolute;
-    top: 3.5rem;
-    left: 10%;
-    right: 10%;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
-    opacity: 0.2;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    border-radius: 3px 0 0 3px;
+    transition: width 0.4s ease;
 }
 
-.process-step {
-    padding: 2.5rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.05);
-    position: relative;
-    transition: background 0.3s ease;
-}
+.process-step:nth-child(1)::before { background: #ff6b35; }
+.process-step:nth-child(2)::before { background: #e84a5f; }
+.process-step:nth-child(3)::before { background: #a855f7; }
+.process-step:nth-child(4)::before { background: #6366f1; }
 
 .process-step:hover {
-    background: rgba(255, 255, 255, 0.02);
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25);
 }
 
-.process-step:last-child {
-    border-right: none;
+.process-step:hover::before {
+    width: 5px;
 }
 
 .process-step-number {
-    font-family: var(--font-display);
-    font-size: 5rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.03);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
     line-height: 1;
     margin-bottom: 1.5rem;
-    transition: color 0.4s ease, transform 0.4s ease;
+    letter-spacing: 0.1em;
+    transition: color 0.4s ease;
 }
 
-.process-step:hover .process-step-number {
-    color: rgba(255, 107, 53, 0.15);
-    transform: scale(1.05);
-}
+.process-step:nth-child(1) .process-step-number { color: #ff6b35; }
+.process-step:nth-child(2) .process-step-number { color: #e84a5f; }
+.process-step:nth-child(3) .process-step-number { color: #a855f7; }
+.process-step:nth-child(4) .process-step-number { color: #6366f1; }
 
 .process-step h3 {
     font-family: var(--font-display);
