@@ -1,8 +1,24 @@
 {
   "items": [
-    { "target": 3, "suffix": "+", "label": "Dokončani projekti" },
-    { "target": 17, "suffix": "", "label": "Let v digitalnem svetu" },
-    { "target": 100, "suffix": "%", "label": "Predanost" },
-    { "target": 24, "suffix": "/7", "label": "Dostopnost" }
+    {
+      "target": 10,
+      "suffix": "+",
+      "label": "Dokončani projekti"
+    },
+    {
+      "target": 17,
+      "suffix": "",
+      "label": "Let v digitalnem svetu"
+    },
+    {
+      "target": 100,
+      "suffix": "%",
+      "label": "Predanost"
+    },
+    {
+      "target": 24,
+      "suffix": "/7",
+      "label": "Dostopnost"
+    }
   ]
 }
