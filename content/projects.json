@@ -22,6 +22,15 @@
       ]
     },
     {
+      "tag": "Kavarna",
+      "title": "Kavarna Škocjan",
+      "description": "Spletna stran za priljubljeno kavarno v Škocjanu.",
+      "url": "https://kavarna-skocjan.si",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770802505/kavarnafinal_yhp7jw.jpg"
+      ]
+    },
+    {
       "tag": "Glasbenik",
       "title": "Filip Jagodič",
       "description": "Osebna spletna stran za glasbenika in producenta.",
