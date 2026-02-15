@@ -9,7 +9,7 @@
       "description": "Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.",
       "url": "https://www.studio-mars.com",
       "images": [
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770761009/studio1_vwnqk4.jpg"
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771176669/Screenshot_2026-02-15_at_17.50_copy_molwoj.jpg"
       ]
     },
     {
@@ -18,9 +18,25 @@
       "description": "Landing page in dokumentacija za napreden avtomatiziran trading sistem.",
       "url": "https://orangepulse.net",
       "images": [
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758392/Screenshot_2026-02-10_at_22.10.32_l4xaho.png",
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758395/Screenshot_2026-02-10_at_22.16.55_kdwqrj.png",
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770758405/Screenshot_2026-02-10_at_22.16.44_adiysm.png"
+        "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"
+      ]
+    },
+    {
+      "tag": "Glasbenik",
+      "title": "Filip Jagodič",
+      "description": "Osebna spletna stran za glasbenika in producenta.",
+      "url": "https://filip-jagodic.vercel.app/",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771174677/Screenshot_2026-02-15_at_17.53.41_cs9ggs.png"
+      ]
+    },
+    {
+      "tag": "Degustacijski dogodek",
+      "title": "Od kleti do noči",
+      "description": "Promocijska stran za degustacijski dogodek.",
+      "url": "https://vino-in-prijatelji.vercel.app/",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770848440/IMG_3812_mjvu5r.jpg"
       ]
     },
     {
