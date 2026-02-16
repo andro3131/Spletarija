@@ -4,6 +4,42 @@
   "sectionTitleGradient": "projekti.",
   "items": [
     {
+      "tag": "Kantavtor",
+      "title": "Kristjan Hočevar",
+      "description": "Spletna stran za kantavtorja in glasbenika.",
+      "url": "https://www.kristjanhocevar.com",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771190911/565304430_25379658718308632_6215203515395913864_n_1_hper69.jpg"
+      ]
+    },
+    {
+      "tag": "Glasbenik",
+      "title": "Filip Jagodič",
+      "description": "Osebna spletna stran za glasbenika in producenta.",
+      "url": "https://filip-jagodic.vercel.app/",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771174677/Screenshot_2026-02-15_at_17.53.41_cs9ggs.png"
+      ]
+    },
+    {
+      "tag": "Kavarna",
+      "title": "Kavarna Škocjan",
+      "description": "Spletna stran za priljubljeno kavarno v Škocjanu.",
+      "url": "https://kavarna-skocjan.si",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770802505/kavarnafinal_yhp7jw.jpg"
+      ]
+    },
+    {
+      "tag": "Degustacijski dogodek",
+      "title": "Od kleti do noči",
+      "description": "Promocijska stran za degustacijski dogodek.",
+      "url": "https://vino-in-prijatelji.vercel.app/",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770848440/IMG_3812_mjvu5r.jpg"
+      ]
+    },
+    {
       "tag": "Snemalni studio",
       "title": "Studio MARS",
       "description": "Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.",
@@ -19,42 +55,6 @@
       "url": "https://orangepulse.net",
       "images": [
         "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80"
-      ]
-    },
-    {
-      "tag": "Kavarna",
-      "title": "Kavarna Škocjan",
-      "description": "Spletna stran za priljubljeno kavarno v Škocjanu.",
-      "url": "https://kavarna-skocjan.si",
-      "images": [
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770802505/kavarnafinal_yhp7jw.jpg"
-      ]
-    },
-    {
-      "tag": "Glasbenik",
-      "title": "Filip Jagodič",
-      "description": "Osebna spletna stran za glasbenika in producenta.",
-      "url": "https://filip-jagodic.vercel.app/",
-      "images": [
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771174677/Screenshot_2026-02-15_at_17.53.41_cs9ggs.png"
-      ]
-    },
-    {
-      "tag": "Degustacijski dogodek",
-      "title": "Od kleti do noči",
-      "description": "Promocijska stran za degustacijski dogodek.",
-      "url": "https://vino-in-prijatelji.vercel.app/",
-      "images": [
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1770848440/IMG_3812_mjvu5r.jpg"
-      ]
-    },
-    {
-      "tag": "Kantavtor",
-      "title": "Kristjan Hočevar",
-      "description": "Spletna stran za kantavtorja in glasbenika.",
-      "url": "https://www.kristjanhocevar.com",
-      "images": [
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771190911/565304430_25379658718308632_6215203515395913864_n_1_hper69.jpg"
       ]
     }
   ]
