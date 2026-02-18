@@ -4,6 +4,15 @@
   "sectionTitleGradient": "projekti.",
   "items": [
     {
+      "tag": "Ozvočevanje",
+      "title": "JMA Zvok",
+      "description": "Spletna stran za ozvočevanje prireditev.",
+      "url": "https://jma-zvok.si",
+      "images": [
+        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771273162/20260213_215234_nzfknc.jpg"
+      ]
+    },
+    {
       "tag": "Kantavtor",
       "title": "Kristjan Hočevar",
       "description": "Spletna stran za kantavtorja in glasbenika.",
