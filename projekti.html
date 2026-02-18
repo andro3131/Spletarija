@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="sl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Spletarije — Vsi naši projekti. Oglejte si spletne strani, ki smo jih ustvarili.">
+    <meta name="author" content="Spletarije">
+
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <title>Projekti — Spletarije</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="index.html" class="nav-logo-wrapper">
+            <img src="assets/logo-icon.png" alt="Spletarije" class="nav-logo-icon">
+            <div class="nav-logo">
+                <span class="logo-text"><span class="logo-splet">SPLET</span><span
+                        class="logo-arija">ARIJE</span></span>
+                <span>Pletemo digitalne zgodbe</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html#storitve">Storitve</a></li>
+            <li><a href="index.html#projekti">Projekti</a></li>
+            <li><a href="index.html#proces">Proces</a></li>
+            <li><a href="index.html#mnenja">Mnenja</a></li>
+        </ul>
+        <a href="index.html#kontakt" class="nav-cta">Začni projekt</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Odpri meni">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#storitve">Storitve</a>
+        <a href="index.html#projekti">Projekti</a>
+        <a href="index.html#proces">Proces</a>
+        <a href="index.html#mnenja">Mnenja</a>
+        <a href="index.html#kontakt" style="color: var(--accent-1);">Začni projekt</a>
+    </div>
+
+    <!-- Projects Page -->
+    <section class="projects" style="padding-top: 10rem;">
+        <div class="container">
+            <div class="section-label reveal">// Vsi projekti</div>
+            <h2 class="section-title reveal delay-1">Naši<br><span class="gradient-text">projekti.</span></h2>
+
+            <div class="projects-grid" style="margin-top: 4rem;">
+                <div class="project-card reveal-scale delay-1" data-url="https://jma-zvok.si">
+                    <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1771273162/20260213_215234_nzfknc.jpg" alt="JMA Zvok">
+                    <div class="project-card-overlay">
+                        <span class="project-tag">Ozvočevanje</span>
+                        <h3>JMA Zvok</h3>
+                        <p>Spletna stran za ozvočevanje prireditev.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-scale delay-2" data-url="https://www.kristjanhocevar.com">
+                    <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1771190911/565304430_25379658718308632_6215203515395913864_n_1_hper69.jpg" alt="Kristjan Hočevar">
+                    <div class="project-card-overlay">
+                        <span class="project-tag">Kantavtor</span>
+                        <h3>Kristjan Hočevar</h3>
+                        <p>Spletna stran za kantavtorja in glasbenika.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-scale delay-3" data-url="https://filip-jagodic.vercel.app/">
+                    <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1771174677/Screenshot_2026-02-15_at_17.53.41_cs9ggs.png" alt="Filip Jagodič">
+                    <div class="project-card-overlay">
+                        <span class="project-tag">Glasbenik</span>
+                        <h3>Filip Jagodič</h3>
+                        <p>Osebna spletna stran za glasbenika in producenta.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-scale delay-4" data-url="https://kavarna-skocjan.si">
+                    <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1770802505/kavarnafinal_yhp7jw.jpg" alt="Kavarna Škocjan">
+                    <div class="project-card-overlay">
+                        <span class="project-tag">Kavarna</span>
+                        <h3>Kavarna Škocjan</h3>
+                        <p>Spletna stran za priljubljeno kavarno v Škocjanu.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-scale delay-5" data-url="https://vino-in-prijatelji.vercel.app/">
+                    <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1770848440/IMG_3812_mjvu5r.jpg" alt="Od kleti do noči">
+                    <div class="project-card-overlay">
+                        <span class="project-tag">Degustacijski dogodek</span>
+                        <h3>Od kleti do noči</h3>
+                        <p>Promocijska stran za degustacijski dogodek.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-scale delay-6" data-url="https://www.studio-mars.com">
+                    <img class="project-card-image active" src="https://res.cloudinary.com/dewf3zos0/image/upload/v1771176669/Screenshot_2026-02-15_at_17.50_copy_molwoj.jpg" alt="Studio MARS">
+                    <div class="project-card-overlay">
+                        <span class="project-tag">Snemalni studio</span>
+                        <h3>Studio MARS</h3>
+                        <p>Kompletna spletna stran za profesionalni snemalni studio v Trebnjem.</p>
+                    </div>
+                </div>
+                <div class="project-card reveal-scale delay-7" data-url="https://orangepulse.net">
+                    <img class="project-card-image active" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" alt="OrangePulse">
+                    <div class="project-card-overlay">
+                        <span class="project-tag">Trading platforma</span>
+                        <h3>OrangePulse</h3>
+                        <p>Landing page in dokumentacija za napreden avtomatiziran trading sistem.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="nav-logo-wrapper">
+                    <img src="assets/logo-icon.png" alt="Spletarije" class="nav-logo-icon">
+                    <div class="nav-logo">
+                        <span class="logo-text"><span class="logo-splet">SPLET</span><span
+                                class="logo-arija">ARIJE</span></span>
+                        <span>Pletemo digitalne zgodbe</span>
+                    </div>
+                </div>
+                <p>Oblikujemo digitalne izkušnje za podjetnike, umetnike in vse, ki želijo izstopati na spletu.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navigacija</h4>
+                <ul>
+                    <li><a href="index.html#storitve">Storitve</a></li>
+                    <li><a href="index.html#projekti">Projekti</a></li>
+                    <li><a href="index.html#proces">Proces</a></li>
+                    <li><a href="index.html#mnenja">Mnenja</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Storitve</h4>
+                <ul>
+                    <li><a href="#">Spletne strani</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Animacije</a></li>
+                    <li><a href="#">Optimizacija</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Kontakt</h4>
+                <ul>
+                    <li><a href="mailto:info@spletarije.si">info@spletarije.si</a></li>
+                    <li><a href="#">Trebnje, Slovenija</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2025 Spletarije. Vse pravice pridržane.</span>
+            <div class="footer-socials">
+                <a href="#" title="Instagram"><span>IG</span></a>
+                <a href="#" title="LinkedIn"><span>LI</span></a>
+                <a href="#" title="X"><span>X</span></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Preview Modal -->
+    <div class="project-modal" id="projectModal">
+        <div class="project-modal-window">
+            <div class="project-modal-header">
+                <div class="project-modal-url" id="projectModalUrl"></div>
+                <div class="project-modal-actions">
+                    <a class="project-modal-newtab" id="projectModalNewTab" href="#" target="_blank" rel="noopener">Odpri v novem zavihku</a>
+                    <button class="project-modal-close" id="projectModalClose">&times;</button>
+                </div>
+            </div>
+            <iframe class="project-modal-iframe" id="projectModalIframe" src="" title="Project preview"></iframe>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+
+</html>
