@@ -159,7 +159,11 @@ function applyProjects(data) {
 
     grid.innerHTML = '';
 
-    data.items.forEach((item, i) => {
+    const isProjectsPage = window.location.pathname.includes('projekti');
+    const maxItems = isProjectsPage ? data.items.length : 6;
+    const items = data.items.slice(0, maxItems);
+
+    items.forEach((item, i) => {
         const images = item.images || (item.image ? [item.image] : []);
         const isSlideshow = images.length > 1;
         const card = document.createElement('div');
