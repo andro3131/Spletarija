@@ -54,7 +54,7 @@ function closeMobile() {
 }
 
 // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]:not(.project-modal-newtab)').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
