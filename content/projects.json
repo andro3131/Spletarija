@@ -4,12 +4,21 @@
   "sectionTitleGradient": "projekti.",
   "items": [
     {
+      "tag": "Osebna stran",
+      "title": "Uroš Rzišnik",
+      "description": "Osebna spletna stran.",
+      "url": "https://uros-rzisnik.vercel.app/",
+      "images": [
+        "https://uros-rzisnik-cdn.b-cdn.net/480328787_1726771948263052_4133550290010691417_n%20(1).jpg"
+      ]
+    },
+    {
       "tag": "Ozvočevanje",
       "title": "JMA Zvok",
       "description": "Spletna stran za ozvočevanje prireditev.",
       "url": "https://jma-zvok.si",
       "images": [
-        "https://res.cloudinary.com/dewf3zos0/image/upload/v1771273162/20260213_215234_nzfknc.jpg"
+        "https://jma-zvok-cdn.b-cdn.net/Galerija/20260213_215234_nzfknc.jpg"
       ]
     },
     {
