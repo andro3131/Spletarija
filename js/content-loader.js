@@ -159,7 +159,8 @@ function applyProjects(data) {
 
     grid.innerHTML = '';
 
-    const items = data.items;
+    const isProjectsPage = window.location.pathname.includes('projekti');
+    const items = isProjectsPage ? data.items : data.items.slice(0, 8);
 
     items.forEach((item, i) => {
         const images = item.images || (item.image ? [item.image] : []);
