@@ -4,6 +4,15 @@
   "sectionTitleGradient": "projekti.",
   "items": [
     {
+      "tag": "Spletna stran",
+      "title": "Divana",
+      "description": "Spletna stran za Divana.",
+      "url": "https://divana-tvwt.vercel.app/",
+      "images": [
+        "https://divana-cdn.b-cdn.net/DIVANA-HERO.jpg"
+      ]
+    },
+    {
       "tag": "Osebna stran",
       "title": "Uroš Rzišnik",
       "description": "Osebna spletna stran.",
