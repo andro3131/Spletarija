@@ -84,7 +84,8 @@ const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting && !counterInterval) {
             animateCounters();
-            counterInterval = setInterval(animateCounters, 5000);
+            // ponovi animacijo, a pusti končno vrednost prikazano dlje (2s animacija + ~6s premor = vsaj 5s)
+            counterInterval = setInterval(animateCounters, 8000);
         }
         if (!entry.isIntersecting && counterInterval) {
             clearInterval(counterInterval);
