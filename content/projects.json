@@ -4,6 +4,15 @@
   "sectionTitleGradient": "projekti.",
   "items": [
     {
+      "tag": "Strojni estrihi",
+      "title": "Raja-Tlaki",
+      "description": "Spletna stran za strojne estrihe in industrijske tlake.",
+      "url": "https://raja-tlaki.si",
+      "images": [
+        "https://raja-tlaki.b-cdn.net/viber_image_2026-04-19_19-25-23-075.jpg"
+      ]
+    },
+    {
       "tag": "Spletna stran",
       "title": "Divana",
       "description": "Spletna stran za Divana.",
